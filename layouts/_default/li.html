@@ -1,0 +1,5 @@
+<article class="li">
+  <a href="{{ .Permalink }}" class="clearfix">
+    <div class="image" style="background-image: url({{ $.Site.Params.ImageCdnUrl }}{{ with .Params.image }}images/{{ . }}{{ else }}{{ $.Site.Params.DefaultImage }}{{ end }});"></div>
+  </a>
+</article>

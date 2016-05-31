@@ -1,0 +1,9 @@
+baseurl = "http://smylee.com/"
+languageCode = "en-us"
+title = "smylee.com"
+
+[Params]
+  Author = "Patty Ramert"
+  ImageCdnUrl = "http://cdn.smylee.com/"
+  DefaultImage = "static/default.png"
+  LogoImage = "static/logo.png"

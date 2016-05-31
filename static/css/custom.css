@@ -1,0 +1,22 @@
+.logo {
+    background-repeat: no-repeat;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-size: contain;
+    background-position: left;
+    margin: 0 auto;
+    padding-left: 4rem;
+    padding-top: 1.25rem;
+}
+
+.p-logo a {
+    font-family: 'Marcellus SC', cursive;
+    font-size: 2rem;
+}
+
+.l-header {
+    background-color: #fff;
+    padding: 0.5rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+}
