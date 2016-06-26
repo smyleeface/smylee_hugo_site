@@ -1,12 +1,13 @@
-<article class="grid">
+<article class="home_article">
   <a href="{{ .Permalink }}">
-    <div class="image" style="background-image: url({{ $.Site.Params.ImageCdnUrl }}{{ with .Params.image }}images/{{ . }}{{ else }}{{ $.Site.Params.DefaultImage }}{{ end }});"></div>
-    <footer>
+    <div class="article_image" style="background-image: url({{ $.Site.Params.ImageCdnUrl }}{{ with .Params.image }}images/{{ . }}{{ else }}{{ $.Site.Params.DefaultImage }}{{ end }});">
       <div class="date">
         <time>{{ with .Site.Params.DateForm }}{{ $.Date.Format . }}{{ else }}{{ $.Date.Format "Mon, Jan 2, 2006" }}{{ end }}</time>
       </div>
+    </div>
+    <div class="article_data">
       <h2 class="title">{{ .Title }}</h2>
       <div class="summary">{{ .Summary }}</div>
-    </footer>
+    </div>
   </a>
 </article>

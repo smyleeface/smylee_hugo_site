@@ -1,0 +1,49 @@
+<aside class="site">
+  <div id="sidebar_logo">
+  {{ partial "logo.html" . }}
+  </div>
+  {{ if and .IsPage (ne .Params.toc false) }}
+  <section class="panel panel-default">
+    <header class="panel-heading"><h2 class="panel-title">{{ .Title }} - Contents</h2></header>
+    <div class="panel-body">{{ .TableOfContents }}</div>
+  </section>
+  {{ end }}
+  {{ if ne (len .Site.Menus) 0 }}
+  <section class="panel panel-default">
+    <header class="panel-heading"><h2 class="panel-title">smylee.com</h2></header>
+    <div class="panel-body">
+        {{ range .Site.Menus }}
+        <ul>
+          {{ range . }}
+            {{ if .HasChildren }}
+	          <li>
+	            <a href="#">{{ .Pre }} {{ .Name }}</a>
+	            <ul>
+	              {{ range .Children }}
+	              <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+	            </ul>
+	          </li>
+              {{ end }}
+          {{ else }}
+          <li><a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
+          {{ end }}
+          {{end}}
+        </ul>
+        {{end}}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ range $key, $value := .Site.Taxonomies }}
+  <section class="panel panel-default">
+    <header class="panel-heading"><h2 class="panel-title">{{ $key }}</h2></header>
+    <div class="panel-body aside-tags">
+      <ul>
+        {{ range first 10 $value.ByCount }}<li><span class="badge">{{ .Count }}</span>&nbsp;&nbsp;<a href="{{ $.Site.BaseURL}}{{ $key }}/{{ .Name | urlize }}">{{ .Name | humanize }} </a></li>{{ end }}
+      </ul>
+      <div class="list-all"><a href="/all/{{ $key | urlize }}">List All {{ $key }}</a></div>
+    </div>
+  </section>
+  {{ end }}
+
+</aside>

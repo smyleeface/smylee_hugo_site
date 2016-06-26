@@ -1,0 +1,206 @@
+body {
+    background-color: #EBEBEB;
+}
+.panel-default>.panel-heading {
+    background-color: #CCC;
+}
+a {
+	color: #333;
+	cursor: pointer;
+}
+a:hover {
+	color:#666;
+}
+#mainbar_logo {
+    display:none;
+}
+header h1 {
+	margin:0;
+	font-size: 2.5rem;
+}
+
+header .logo {
+	background-image: url(http://cdn.smylee.com/static/logo.png);
+	background-repeat: no-repeat;
+    height: 8rem;
+    background-size: 6rem;
+    padding-left: 8rem;
+    font-family: 'Candal', sans-serif;
+}
+header a {
+	float: left;
+    margin: 0;
+    text-decoration: none;
+}
+header a:hover {
+    text-decoration: none;
+}
+.row {
+	margin:0;
+}
+div[class*="col-"] {
+	padding:0;
+}
+.home_article {
+    clear: both;
+	max-height: 22rem;
+    margin: 0;
+    overflow: hidden;
+    border-bottom: 1px solid #CCC;
+    padding: 2rem 0;
+}
+.home_article:last-child {
+    border-bottom: none;
+}
+.home_article:hover {
+    background-color: #EBEBEB;
+}
+.article_image {
+    width: 28%;
+    height: 17rem;
+    float: left;
+    background-position: top center;
+    margin-right: 1rem;
+    position: relative;
+}
+.article_data {
+	float: left;
+    width: 69%;
+}
+
+h2.title {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+}
+.panel-footer {
+	padding:0 1rem;
+}
+article .date {
+    display: block;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+    padding-right: .5rem;
+    color: #FFF;
+    font-size: 1.25rem;
+}
+.panel-default {
+    margin: 1rem;
+}
+
+.pagination {
+    margin: 1rem 0;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    color: #333;
+    background-color: #CCC;
+    border-color: #CCC;
+}
+.pagination>li>a, .pagination>li>span {
+    color: #333;
+    border: 1px solid #CCC;
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    color: #666;
+}
+
+#single_page h1 {
+    font-size: 20px
+}
+#single_page h2,
+#single_page h3,
+#single_page h4,
+#single_page h5,
+#single_page h6 {
+    font-size: 20px;
+    border-bottom: 1px dashed #CCC;
+}
+#single_page a {
+    text-decoration: underline;
+}
+#single_page .panel-body img {
+    max-width: 100%;
+}
+#TableOfContents > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#TableOfContents > ul li {
+    margin: 0;
+    padding: 0;
+}
+#TableOfContents > ul ul li {
+    margin: 0;
+    padding: 2px 5px;
+    list-style-type: none;
+}
+
+#contact_email span {
+    font-size: 74px;
+    line-height: .65;
+}
+.list-all {
+    text-align: right;
+}
+.badge {
+    color: #999;
+    background-color: #EBEBEB;
+}
+aside ul {
+    margin: 0;
+    padding: 0;
+}
+aside ul li  {
+    list-style: none;
+    margin: 0;
+    padding: 2px 0;
+}
+aside .aside-tags {
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2;
+  column-gap: 20px;
+}
+#all_tags_page .panel-body #div-tags {
+  -moz-column-count: 4;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 20px;
+  column-count: 4;
+  column-gap: 20px;
+}
+#all_tags_page ul {
+    margin: 0;
+    padding: 0;
+}
+#all_tags_page ul li {
+    list-style: none;
+    margin: 0;
+    padding: 2px 0;
+}
+
+@media (min-width: 992px) and (max-width: 1238px) {
+
+    header h1 {
+        font-size: 2rem;
+    }
+    header .logo {
+        height: 7rem;
+        background-size: 5rem;
+        padding-left: 6rem;
+    }
+}
+@media (max-width: 991px) {
+
+    #mainbar_logo {
+        display:block;
+    }
+    #sidebar_logo {
+        display:none;
+    }
+}

@@ -1,0 +1,24 @@
+{{ partial "header.html" . }} 
+<div class=".container-fluid">
+	<div class="row">
+	  <div class="col-xs-9">
+		<section id="main" class="panel panel-default">
+    	  <header class="panel-heading"><h2 class="panel-title">Posts - {{ .Title }}</h2></header>
+		  <div class="panel-body">
+		        {{ range $key, $value := .Paginator.Pages }}
+		        {{ if ne .Type "auth" }}
+		          {{ .Render "home_list" }}
+		        {{ end }}
+		        {{ end }}
+		  </div>
+		  <div class="panel-footer">
+		  {{ partial "pagination.html" . }}
+		  </div>
+		</section>
+	  </div>
+	  <div class="col-xs-3">
+		{{ partial "sidebar.html" . }} 
+	  </div>
+	</div>
+</div>
+{{ partial "footer.html" . }} 

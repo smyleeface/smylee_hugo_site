@@ -1,0 +1,34 @@
+{{ partial "header.html" . }}
+<div class=".container-fluid">
+	<div class="row">
+	  <div class="col-md-9">
+		<section id="all_tags_page" class="panel panel-default">
+    	  <header class="panel-heading"><h1 class="panel-title">{{ .Title }}</h1></header>
+		  <div class="panel-body">
+		  {{ if in .Title "Tags" }}
+		  <div id="div-tags">
+			<ul id="all-tags">
+			  {{ range $name, $taxonomy := .Site.Taxonomies.Tags }}
+			    <li><span class="badge">{{ .Count }}</span>&nbsp;&nbsp;<a href="/tags/{{ $name | urlize }}">{{ $name }}</a></li>
+			  {{ end }}
+			</ul>
+		  </div>
+		  {{ end }}
+		  {{ if in .Title "Categories" }}
+		  <div id="div-cat">
+			<ul id="all-cat">
+			  {{ range $name, $taxonomy := .Site.Taxonomies.Categories }}
+			    <li><span class="badge">{{ .Count }}</span>&nbsp;&nbsp;<a href="/tags/{{ $name | urlize }}">{{ $name }}</a></li>
+			  {{ end }}
+			</ul>
+		  </div>
+		  {{ end }}
+		  </div>
+		</section>
+	  </div>
+	  <div class="col-md-3">
+		{{ partial "sidebar.html" . }}
+	  </div>
+	</div>
+</div>
+{{ partial "footer.html" . }}

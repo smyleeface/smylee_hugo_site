@@ -1,0 +1,18 @@
+<nav>
+<ul class="pagination">
+{{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+  {{ if .Paginator.HasPrev }}
+  <li><a href="{{ .Paginator.Prev.URL }}" rel="nofollow" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+  {{ end }}
+
+    {{ $this_page := .Paginator.PageNumber }}
+  {{ range .Paginator.Pagers }}
+     <li {{ if eq $this_page .PageNumber }}class="active"{{ end }}><a href="{{ .URL }}" rel="nofollow">{{ .PageNumber }}</a></li>
+  {{ end }}
+
+  {{ if .Paginator.HasNext }}
+  <li><a href="{{ .Paginator.Next.URL }}" rel="nofollow" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+  {{ end }}
+{{ end }}
+</ul>
+</nav>

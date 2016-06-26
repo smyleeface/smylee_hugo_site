@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+<div class=".container-fluid">
+	<div class="row">
+	  <div class="col-md-9">
+		<section id="single_page" class="panel panel-default">
+    	  <header class="panel-heading"><h1 class="panel-title">{{ .Title }}</h1></header>
+		  <div class="panel-body">
+          {{ .Content }}
+		  </div>
+		  {{ if eq .IsPage false }}
+		  <div class="panel-footer">
+		  {{ partial "pagination.html" . }}
+		  </div>
+		  {{ end }}
+		</section>
+	  </div>
+	  <div class="col-md-3">
+		{{ partial "sidebar.html" . }}
+	  </div>
+	</div>
+</div>
+{{ partial "footer.html" . }}
