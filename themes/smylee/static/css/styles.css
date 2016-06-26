@@ -183,6 +183,16 @@ aside .aside-tags {
     margin: 0;
     padding: 2px 0;
 }
+footer {
+    margin:20px;
+    color: #666;
+}
+footer p {
+    margin:0;
+}
+footer a {
+    color: #666;
+}
 
 @media (min-width: 992px) and (max-width: 1238px) {
 
