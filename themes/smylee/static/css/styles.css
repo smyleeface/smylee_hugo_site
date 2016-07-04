@@ -41,6 +41,9 @@ header a:hover {
 div[class*="col-"] {
 	padding:0;
 }
+.clear-all {
+    clear:both;
+}
 .home_article {
     clear: both;
 	max-height: 22rem;
@@ -193,7 +196,42 @@ footer p {
 footer a {
     color: #666;
 }
+.footnote {
+    font-size: 80%;
+    margin-top: 14px;
+}
+#solardata .todaydate {
+    font-size: 200%;
+    display: inline-block;
+    margin-right: 6rem;
+}
+#solardata .todaygenerate {
+    font-size: 200%;
+    display: inline-block;
+}
+#solardata .poweredby {
+    float: right;
+    color: #989797;
+}
+#solardata .poweredby img {
+    vertical-align: bottom;
+}
 
+#single_page .img_border {
+    border: 1px solid #CCC;
+    padding: 5px;
+    margin: 5px 0;
+    float: left;
+}
+#single_page .img_border .img_cap {
+    clear: both;
+    display: block;
+    border-top: 1px dashed #CCC;
+    margin-top: 5px;
+    text-align: right;
+    color: #9a9a9a;
+    font-style: italic;
+}
 @media (min-width: 992px) and (max-width: 1238px) {
 
     header h1 {
