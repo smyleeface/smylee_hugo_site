@@ -5,11 +5,11 @@ var today = new Date();
 var app = angular.module('solardata', ["chart.js"]);
 
 app.service('SolarService', function($http, $q){
-	this.get = function(getType, filter = ''){
+	this.get = function(getType, filter){
 		var deferred = $q.defer();
 
 		//create the querystring
-		var qs = '?getType='+getType
+		var qs = '?getType='+getType;
 		if (filter.length != 0) {
 			qs += '&filter='+filter
 		}
