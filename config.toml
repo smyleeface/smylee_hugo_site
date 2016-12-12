@@ -1,7 +1,9 @@
-baseurl = "http://smylee.com/"
+baseurl = "localhost"
 languageCode = "en-us"
 title = "smylee.com"
 enableRobotsTXT = true
+enableEmoji = true
+googleAnalytics = "UA-80166115-1"
 
 [Params]
   Author = "Patty R"
