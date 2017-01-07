@@ -1,0 +1,7 @@
+deploy:
+  provider: s3
+  access_key_id: AKIAJ7S3FKFV55L3GKSQ
+  secret_access_key:
+    secure: y0L32bL+lazEU+ess47EYnk8uuWu/cxbgQNVoVLpWObuvlzOaDBlcvBYcP/x4cw04qXER8oam3BEf8l14MJSoxt3UCD/LKq/klaKAgf4FJ/4GVoObPMa3ntK/WTj3vsTNn8eKKG9jdmj0gYOuQmo4In9m/eN/A1twofvltwcmLNZPzftaLq3/GBDLXE83oXq+LPQqvpyZaioDR5zlJw+DqVL29QQ4ShI43cDt7d4x43CkC4S2Zj2ClsfwQuDcmH1zcaBVjbveBa7mp2qjS9dkDUx5tv4cKMf3vmUCObwaRPM2+BiAI5L9vw0KDG3btjYDNhm0mIxm9wBogfcMbjBD7UlSmEVg7f+LpmdYaJHsuuPGP30kZ+iu+TQcdGOZhelcAX7o55JagLkg4zcaURjbVrMQBIoy7I6eRmchP9uxXe/rMxzcqNlsDt/79PUIsbSCbDVOuXpLdmTn89kFAqExP2pnDtgywsyraXZ+cTHDYMqkAJo+04AnZoEmmxVzouoVnjWw/cqhfnDUkM58vrtjtAB0qVV1qposNP3qHWW4dX0kuVGGs5hz++gV8OtLKd7w/Ae6VD+GgUTWOPt/A5sx+SNkxbxB4B655K0CwovU84fV7fAbqgrcTRwKiXVLbJDk6XhgHxzs9jj7mAoyiVhNSrFyAA23XXSimgxAoNF0+U=
+  bucket: smylee-travis-test
+  region: us-west-2
