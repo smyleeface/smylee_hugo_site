@@ -1,7 +1,10 @@
 +++
-date = "2016-05-30T17:20:47-07:00"
-draft = false
 title = "It WORKED!"
+date = "2016-05-30T17:20:47-07:00"
+toc = false
+draft = false
+categories = ["Random"]
+tags = ["AWS", "Lambda"]
 image = "IMG953019_2.jpg"
 +++
 

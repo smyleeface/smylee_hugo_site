@@ -1,10 +1,10 @@
 +++
-date = "2016-06-25T17:00:00-09:00"
-draft = false
 title = "New Theme"
+date = "2016-06-25T17:00:00-09:00"
+toc = false
+draft = false
 categories = ["Site Update"]
 tags = ["Hugo", "Lambda"]
-toc = false
 image = "covers/newtheme.png"
 +++
 

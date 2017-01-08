@@ -1,10 +1,10 @@
 +++
-date = "2016-06-07T17:20:47-07:00"
-draft = false
 title = "Magic Night Project - Part 1: GitHub Pull Request Alert on Slack"
+date = "2016-06-07T17:20:47-07:00"
+toc = true
+draft = false
 categories = ["Step-by-Step Guides"]
 tags = ["AWS", "Lambda", "API Gateway", "GitHub", "Slack", "Magic Night"]
-toc = true
 +++
 
 ## Description

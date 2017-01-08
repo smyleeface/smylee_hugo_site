@@ -1,10 +1,10 @@
 +++
-date = "2016-06-25T17:00:00-07:00"
-draft = false
 title = "Internet of Things - Programmable Amazon Dash Button"
+date = "2016-06-25T17:00:00-07:00"
+toc = false
+draft = false
 categories = ["Tinkering"]
 tags = ["AWS", "Lambda", "SNS", "Dash Button", "IoT"]
-toc = false
 image = "covers/awsiotdash.png"
 +++
 

@@ -1,10 +1,10 @@
 +++
-date = "2013-06-29T21:00:00-07:00"
-draft = false
 title = "Brown Top with Pink and Blue Heart Skirt"
+date = "2013-06-29T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Sewing"]
 tags = ["New Look 6735", "Blouse", "Skirt"]
-toc = false
 +++
 
 

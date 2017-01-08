@@ -1,10 +1,10 @@
 +++
-date = "2013-02-23T21:00:00-07:00"
-draft = false
 title = "Chipotle Name Tags"
+date = "2013-02-23T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Random"]
 tags = ["Chipotle", "Food"]
-toc = false
 +++
 
 

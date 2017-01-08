@@ -1,10 +1,10 @@
 +++
-date = "2016-06-07T17:30:47-07:00"
-draft = false
 title = "Magic Night Project - Part 2: Slack Slash Commands for GitHub Pull Request Actions"
+date = "2016-06-07T17:30:47-07:00"
+toc = true
+draft = false
 categories = ["Step-by-Step Guides"]
 tags = ["AWS", "Lambda", "API Gateway", "GitHub", "Slack", "Magic Night", "IAM", "Encryption Keys", "AWS CLI"]
-toc = true
 +++
 
 ## Description

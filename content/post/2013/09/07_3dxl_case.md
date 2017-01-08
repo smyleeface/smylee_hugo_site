@@ -1,10 +1,10 @@
 +++
-date = "2013-09-07T21:00:00-07:00"
-draft = false
 title = "Nintendo 3DXL Case for BG's Birthday"
+date = "2013-09-07T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Sewing"]
 tags = ["3DXL Case", "Nintendo", "Birthday", "BG", "Shrinky Dinks", "Star Wars", "Keychain"]
-toc = false
 +++
 
 

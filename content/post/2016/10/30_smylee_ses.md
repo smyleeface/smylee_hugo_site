@@ -1,10 +1,10 @@
 +++
-date = "2016-10-15T17:00:00-08:00"
-draft = false
 title = "smylee.com emails using AWS"
+date = "2016-10-15T17:00:00-08:00"
+toc = false
+draft = false
 categories = ["Step-by-Step Guides", "AWS"]
 tags = ["Email", "AWS", "Route53", "Lambda", "IAM", "SES", "S3", "SQS", "KMS", "CloudWatch"]
-toc = false
 image = "201610/ses_smylee_com_workflow.png"
 +++
 

@@ -1,11 +1,11 @@
 +++
-date = "2013-01-18T21:00:00-07:00"
-draft = false
 title = "Fall Colored Striped Dress"
-image = "2013/05/2013-02-23_15-15-59_601.jpg"
+date = "2013-01-18T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Sewing"]
 tags = ["Sewing", "Dress", "Simplicity 1755"]
-toc = false
+image = "2013/05/2013-02-23_15-15-59_601.jpg"
 +++
 <p>Now that I've had a little break from sewing, it's time to get on and use some of the fabric my mom gave me. :) The first dress is going to be <a href="http://www.simplicity.com/p-7919-misses-miss-petite-dresses-leanne-marshall-collection.aspx#" target="_blank">Simplicity 1755</a> View B.</p>
 <p><img alt="Simplicity 1755 Pattern Cover" src="http://cdn.smylee.com/images/2013/01/simplicity_1755.png" style="width: 269px; height: 340px;" title=""></a></p>

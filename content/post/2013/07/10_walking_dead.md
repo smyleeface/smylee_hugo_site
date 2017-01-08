@@ -1,10 +1,10 @@
 +++
-date = "2013-07-10T21:00:00-07:00"
-draft = false
 title = "The Walking Dead Surprise!"
+date = "2013-07-10T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Random"]
 tags = ["Walking Dead", "Toys"]
-toc = false
 +++
 
 

@@ -1,10 +1,10 @@
 +++
-date = "2016-10-31T17:00:00-08:00"
-draft = false
 title = "Halloween 2016"
+date = "2016-10-31T17:00:00-08:00"
+toc = false
+draft = false
 categories = ["Sewing"]
 tags = ["Halloween", "Costume", "Catrina", "Painting Party", "Headband", "Face Paint", "AWS Certification"]
-toc = false
 image = "201610/catrina_cover.png"
 +++
 

@@ -1,10 +1,10 @@
 +++
-date = "2013-07-23T21:00:00-07:00"
-draft = false
 title = "Comic Con 2013 - Brother's Costume"
+date = "2013-07-23T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Sewing"]
 tags = ["SDCC", "Costume"]
-toc = false
 +++
 
 

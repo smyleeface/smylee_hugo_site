@@ -1,10 +1,10 @@
 +++
-date = "2016-06-17T21:00:00-07:00"
-draft = false
 title = "Basic Cognito"
+date = "2016-06-17T21:00:00-07:00"
+toc = true
+draft = false
 categories = ["Step-by-Step Guides"]
 tags = ["AWS", "Cognito"]
-toc = true
 +++
 
 ## Description

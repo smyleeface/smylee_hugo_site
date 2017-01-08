@@ -1,10 +1,10 @@
 +++
-date = "2013-07-11T21:00:00-07:00"
-draft = false
 title = "Welcomed Unwelcomed Guests"
+date = "2013-07-11T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["House"]
 tags = ["Doves", "Birds"]
-toc = false
 +++
 
 

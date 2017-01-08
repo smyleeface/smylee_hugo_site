@@ -1,10 +1,10 @@
 +++
-date = "2016-06-20T21:00:00-07:00"
-draft = true
 title = "VPC"
+date = "2016-06-20T21:00:00-07:00"
+toc = true
+draft = true
 categories = ["Review"]
 tags = ["AWS", "VPC"]
-toc = true
 +++
 
 ## Description

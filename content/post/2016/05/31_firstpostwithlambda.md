@@ -1,7 +1,10 @@
 +++
-date = "2016-05-30T17:14:47-07:00"
-draft = false
 title = "AWS Lambda"
+date = "2016-05-30T17:14:47-07:00"
+toc = false
+draft = false
+categories = ["Random"]
+tags = ["AWS", "Lambda"]
 +++
 
 # This post should be created with Lambda

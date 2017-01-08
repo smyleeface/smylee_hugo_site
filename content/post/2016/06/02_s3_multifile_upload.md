@@ -1,7 +1,10 @@
 +++
-date = "2016-06-02T17:20:47-07:00"
-draft = false
 title = "S3 Multifile Upload with Evaporate"
+date = "2016-06-02T17:20:47-07:00"
+toc = false
+draft = false
+categories = ["Step-By-Step Guides"]
+tags = ["AWS", "S3", "Multipart Upload", "Javascript", "API Gateway"]
 +++
 
 So now that my site is using Hugo for static HTML file generation, S3 to store the files, lambda to trigger the Hugo update, and CloudFront to serve images, the next step is to upload files to S3 directly from the browser.

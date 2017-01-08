@@ -1,10 +1,10 @@
 +++
-date = "2013-01-01T18:00:00-07:00"
-draft = false
 title = "Contact"
+date = "2013-01-01T18:00:00-07:00"
+toc = false
+draft = false
 menu = true
 weight = 20
-toc = false
 +++
 
 I'm not very active on social media, but I do pop in once in awhile.

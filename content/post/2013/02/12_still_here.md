@@ -1,10 +1,10 @@
 +++
-date = "2013-02-12T21:00:00-07:00"
-draft = false
 title = "I'm Still Here"
+date = "2013-02-12T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Random"]
 tags = ["Sandcamp", "Drupal", "Rocksmith", "Guitar"]
-toc = false
 +++
 
 

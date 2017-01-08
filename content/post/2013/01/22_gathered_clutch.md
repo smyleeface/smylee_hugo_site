@@ -1,10 +1,10 @@
 +++
-date = "2013-01-22T21:00:00-07:00"
-draft = false
 title = "Skelanimal Gathered Clutch"
+date = "2013-01-22T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Sewing"]
 tags = ["Sewing", "Skelanimals", "Purse"]
-toc = false
 +++
 
 <p>I'm itchin to finish something this weekend.&nbsp;Since my dress is on hold, last minute&nbsp;I decided to make a clutch purse, specifically this one from <a href="http://www.noodle-head.com/2010/04/gathered-clutch-tutorial.html" target="_blank">noodle-head.com</a>.&nbsp;Back in September-October, I went to yardage town and came across Skelanimal fabric. Oh I was estatic! I didn't know what I was going to make with it, I just knew I had to have it.&nbsp;It was inexpensive;&nbsp;less than $5/yd. and picked up two designs.</p>    

@@ -1,10 +1,10 @@
 +++
-date = "2016-07-02T17:00:00-08:00"
-draft = false
 title = "Solar Panels"
+date = "2016-07-02T17:00:00-08:00"
+toc = false
+draft = false
 categories = ["House"]
 tags = ["Solar Panels", "Electric"]
-toc = false
 image = "20160702_solar/cover2.png"
 +++
 

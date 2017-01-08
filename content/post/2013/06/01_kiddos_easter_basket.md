@@ -1,10 +1,10 @@
 +++
-date = "2013-06-01T21:00:00-07:00"
-draft = false
 title = "Kiddos Easter Bags"
+date = "2013-06-01T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Sewing"]
 tags = ["Bags", "Easter"]
-toc = false
 +++
 
 

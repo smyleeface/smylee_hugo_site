@@ -1,10 +1,10 @@
 +++
-date = "2016-06-25T17:00:00-08:00"
-draft = false
 title = "Raspbuuuury Pi"
+date = "2016-06-25T17:00:00-08:00"
+toc = false
+draft = false
 categories = ["Tinkering"]
 tags = ["Raspberry Pi 3"]
-toc = false
 +++
 
 I recently acquired a Raspberry Pi and brought it over to test it out with my dad.

@@ -1,10 +1,10 @@
 +++
-date = "2013-07-08T21:00:00-07:00"
-draft = false
 title = "Doggies"
+date = "2013-07-08T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Random"]
 tags = ["Apple and Rudy", "Dogs"]
-toc = false
 +++
 
 <p>Today was the last day working on my brother's costume for Comic Con. Of course Apple comes along for the visit. Today she tried to play with Rudy, he didn't feel like it.</p>    

@@ -1,10 +1,10 @@
 +++
-date = "2013-06-01T21:00:00-07:00"
-draft = false
 title = "Yo-yo, Yo!"
+date = "2013-06-01T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Random"]
 tags = ["Yo-Yo"]
-toc = false
 +++
 
 

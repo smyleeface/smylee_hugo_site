@@ -1,10 +1,10 @@
 +++
-date = "2016-09-30T17:00:00-08:00"
-draft = false
 title = "Notes from September Projects"
+date = "2016-09-30T17:00:00-08:00"
+toc = false
+draft = false
 categories = ["Coding"]
 tags = ["Debian", "nginx proxy", "Postgres", "saltstack"]
-toc = false
 image = "201609/note_cover.png"
 +++
 

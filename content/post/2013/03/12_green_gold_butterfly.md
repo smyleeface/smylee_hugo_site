@@ -1,10 +1,10 @@
 +++
-date = "2013-03-12T21:00:00-07:00"
-draft = false
 title = "Green and Gold Butterfly Blouse"
+date = "2013-03-12T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Sewing"]
 tags = ["New Look 6782", "Blouse"]
-toc = false
 +++
 
 <p><span>I found this green and gold butterfly knit and I love it. But what to make with it? I have such a hard time deciding on fabric&nbsp;</span><span>with prints. </span><span>The interesting thing about this fabric is the 8" strip on one salvaged edge; which is good for contrast especially in the style I'm planning on making</span><span>.</span></p>    

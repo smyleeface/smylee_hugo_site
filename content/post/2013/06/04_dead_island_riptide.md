@@ -1,10 +1,10 @@
 +++
-date = "2013-06-04T21:00:00-07:00"
-draft = false
 title = "Dead Island: Riptide"
+date = "2013-06-04T21:00:00-07:00"
+toc = false
+draft = false
 categories = ["Games"]
 tags = ["Dead Island: Riptide", "Zombies"]
-toc = false
 +++
 
 

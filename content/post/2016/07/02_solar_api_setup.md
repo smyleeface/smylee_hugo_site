@@ -1,10 +1,10 @@
 +++
-date = "2016-07-02T17:00:00-08:00"
-draft = false
 title = "Solar Panel API Setup"
+date = "2016-07-02T17:00:00-08:00"
+toc = false
+draft = false
 categories = ["Step-by-Step Guides"]
 tags = ["AWS", "Lambda", "DynamoDB", "CloudWatch Events", "API Gateway", "IAM", "Python", "Enphase", "AngularJS 1.5", "Angular-Chart"]
-toc = false
 image = "20160702_solar/cover.png"
 +++
 
