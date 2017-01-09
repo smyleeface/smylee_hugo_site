@@ -8,7 +8,7 @@ python:
 install: pip install -r tests/requirements.txt
 script: python tests/test_check_markdowns.py
 before_install:
-- pip install --user awscli
+- pip install awscli
 before_deploy: tests/clean_s3_bucket.sh
 deploy:
   provider: s3
