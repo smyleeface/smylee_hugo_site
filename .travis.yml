@@ -4,7 +4,7 @@ python:
 script: python tests/test_check_markdowns.py
 
 before_deploy:
-  - ./tests/clean_s3_bucket.sh
+  - python tests/clean_s3_bucket.py
 
 deploy:
   provider: s3
