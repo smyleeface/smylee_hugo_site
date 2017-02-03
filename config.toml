@@ -1,4 +1,4 @@
-baseurl = "localhost"
+baseurl = "smylee.com"
 languageCode = "en-us"
 title = "smylee.com"
 enableRobotsTXT = true
