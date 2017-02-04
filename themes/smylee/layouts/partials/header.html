@@ -13,11 +13,11 @@
     <meta property='og:title' content="{{ .Title }} - {{ .Site.Title }}">
     <meta property="og:type" content="article">
     {{ end }}
-    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:url" content="{{ .Site.BaseURL }}">
     {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
     {{ with .Params.image }}<meta property="og:image" content="/images/{{ . }}">{{ end }}
 
-    <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="canonical" href="{{ .Site.BaseURL }}">
     <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
