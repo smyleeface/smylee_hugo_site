@@ -53,7 +53,7 @@ def lambda_handler(event, context):
             ],
             "Sid": "Stmt0000000000000",
             "Resource": [
-                "arn:aws:sns:us-west-2:952671759649:smylee-com-github-update"
+                "arn:aws:sns:us-west-2:0123456789:smylee-com-github-update"
             ],
             "Effect": "Allow"
         }
