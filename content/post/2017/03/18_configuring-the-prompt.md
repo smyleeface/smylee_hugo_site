@@ -39,9 +39,7 @@ fi
 ```
 
 ### Before
-<img src="http://cdn.smylee.com/images/2017/03/before_deactive_virtualenv.png" alt="Before git-aware-prompt - no venv" title="Before git-aware-prompt - no venv">
-<img src="http://cdn.smylee.com/images/2017/03/before_active_virtualenv.png" alt="Before git-aware-prompt - with venv" title="Before git-aware-prompt - with venv">
+<img src="http://cdn.smylee.com/images/2017/03/before-git-aware-prompt.png" alt="Before git-aware-prompt - with and without venv" title="Before git-aware-prompt - with and without venv">
 
 ### After
-<img src="http://cdn.smylee.com/images/2017/03/after_deactive_virtualenv.png" alt="After git-aware-prompt - no venv" title="After git-aware-prompt - no venv">
-<img src="http://cdn.smylee.com/images/2017/03/after_active_virtualenv.png" alt="After git-aware-prompt - with venv" title="After git-aware-prompt - with venv">
+<img src="http://cdn.smylee.com/images/2017/03/after-git-aware-prompt.png" alt="After git-aware-prompt - with and without venv" title="After git-aware-prompt - with and without venv">
