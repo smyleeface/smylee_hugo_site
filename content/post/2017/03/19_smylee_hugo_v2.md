@@ -15,17 +15,14 @@ I wanted to use the git clone, but I cannot install `git` on the container lambd
 
 I did try to package git binary with the lambda package, but the folder name `git` was conflicting with the python package `git` because of the way python files must be packaged for lambda. Another language might support it but I'm learning to write lambda functions in other languages from other means.
 
-So I setup travis. After a quick setup and a small little python unittest, the code from my repository is being deployed to S3 - as so long as my tests pass. 
-
-The test I wrote, checks the format of the hugo headings in the md files.
+So I setup travis. After a quick setup and a small little python unittest, the code from my repository is being deployed to S3 - as so long as my tests pass. giThe test I wrote, checks the format of the hugo headings in the md files.
 
 Shortly after, I realized that I do not need to clone, I just need to download, and I can use the zip download link from github.
 
-I removed the deploy from travis and rewrote my lambda function to check the github signatures, and upon success, send a `done` message to sns which will trigger the lambda function that does the github download and deployment of my hugo site.
+I removed the deploy from travis and added the github signature check lambda function to an API Gateway endpoint and hooked that up to a github Webhook so push events to the repo will trigger the github signature check lambda function.
 
-I added the github signature check lambda function to an API Gateway endpoint and hooked that up to a github Webhook so push events to the repo will trigger the github signature check lambda function.
+Upon success of the github signature check, it will send a `done` message to sns which will trigger the lambda function that does the github download and deployment of my hugo site.
 
 All that description is simply demonstrated with a diagram:
 
 <img src="http://cdn.smylee.com/images/2017/03/smylee_com_github_workflows.png" alt="Automating Smylee.com updates with Hugo workflow diagram" title="Automating Smylee.com updates with Hugo workflow diagram">
-
