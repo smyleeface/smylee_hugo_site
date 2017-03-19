@@ -17,7 +17,7 @@ I added the configuration to my settings in:
 
 `vi ~/.bash_profile`
 
-``` 
+```
 # http://stackoverflow.com/questions/10406926/how-to-change-default-virtualenvwrapper-prompt
 
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
