@@ -26,6 +26,10 @@ Because of this restriction, in this code, during the s3 event message to sqs ph
 - SES -> Send the email message
 - Email appears in the email provided in the lambda function.
 
+## Diagram
+
+<img src="http://cdn.smylee.com/images/2017/03/smylee_com_ses_workflows.png" alt="SES workflow for smylee.com" title="SES workflow for smylee.com">
+
 ## Steps
 
 More information and steps to set this up can be found at: https://github.com/smyleeface/smylee_com_ses
