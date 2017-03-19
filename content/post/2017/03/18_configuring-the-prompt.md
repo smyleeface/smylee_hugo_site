@@ -7,9 +7,11 @@ categories = ["Step-by-Step Guides"]
 tags = ["OSX", "Terminal", "virtualenv", "git-aware-prompt"]
 +++
 
-I was recommended this tool to help you know what git branch you are working on.
+I was recommended this tool to help you know what git branch you are working on from the terminal prompt.
 
 https://github.com/jimeh/git-aware-prompt
+
+### Configurations
 
 I added the configuration to my settings in:
 
@@ -37,7 +39,10 @@ fi
 ```
 
 ### Before
+
 <img src="http://cdn.smylee.com/images/2017/03/deactive_virtualenv.png" alt="Before git-aware-prompt" title="Before git-aware-prompt">
 
+
 ###After
+
 <img src="http://cdn.smylee.com/images/2017/03/active_virtualenv.png" alt="After git-aware-prompt" title="After git-aware-prompt">
