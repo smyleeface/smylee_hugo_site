@@ -22,7 +22,7 @@ I added the configuration to my settings in:
 
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
-#/Users/pattyramert/.virtualenvs/postactivate
+#/Users/patty/.virtualenvs/postactivate
 export PS1="\n\u@\h\n[\w]\n\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 export SUDO_PS1="\n\[$bakred\]\u@\h\n\[$txtrst\][\w]\n\$ "
 ```
