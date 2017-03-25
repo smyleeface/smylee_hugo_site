@@ -20,12 +20,12 @@
 	            <a href="#">{{ .Pre }} {{ .Name }}</a>
 	            <ul>
 	              {{ range .Children }}
-	              <li><a href="http://{{ .URL }}">{{ .Name }}</a></li>
+	              <li><a href="/">{{ .Name }}</a></li>
 	            </ul>
 	          </li>
               {{ end }}
           {{ else }}
-          <li><a href="http://{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
+          <li><a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
           {{ end }}
           {{end}}
         </ul>

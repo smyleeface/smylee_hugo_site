@@ -7,7 +7,7 @@
 
     {{ $this_page := .Paginator.PageNumber }}
   {{ range .Paginator.Pagers }}
-     <li {{ if eq $this_page .PageNumber }}class="active"{{ end }}><a href="http://{{ .URL }}" rel="nofollow">{{ .PageNumber }}</a></li>
+     <li {{ if eq $this_page .PageNumber }}class="active"{{ end }}><a href="/page/{{ .PageNumber }}" rel="nofollow">{{ .PageNumber }}</a></li>
   {{ end }}
 
   {{ if .Paginator.HasNext }}
