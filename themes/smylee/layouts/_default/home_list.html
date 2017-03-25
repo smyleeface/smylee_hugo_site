@@ -1,5 +1,5 @@
 <article class="home_article">
-  <a href="{{ .Permalink | relURL }}">
+  <a href="http://{{ .Permalink }}">
     <div class="article_image" style="background-image: url({{ $.Site.Params.ImageCdnUrl }}{{ with .Params.image }}images/{{ . }}{{ else }}{{ $.Site.Params.DefaultImage }}{{ end }});">
       <div class="date">
         <time>{{ with .Site.Params.DateForm }}{{ $.Date.Format . }}{{ else }}{{ $.Date.Format "Mon, Jan 2, 2006" }}{{ end }}</time>
