@@ -39,7 +39,7 @@
     <header class="panel-heading"><h2 class="panel-title">{{ $key }}</h2></header>
     <div class="panel-body aside-tags">
       <ul>
-        {{ range first 10 $value.ByCount }}<li><span class="badge">{{ .Count }}</span>&nbsp;&nbsp;<a href="{{ $.Site.BaseURL}}{{ $key }}/{{ .Name | urlize }}">{{ .Name | humanize }} </a></li>{{ end }}
+        {{ range first 10 $value.ByCount }}<li><span class="badge">{{ .Count }}</span>&nbsp;&nbsp;<a href="/{{ $key }}/{{ .Name | urlize }}">{{ .Name | humanize }} </a></li>{{ end }}
       </ul>
       <div class="list-all"><a href="/all/{{ $key | urlize }}">List All {{ $key }}</a></div>
     </div>
