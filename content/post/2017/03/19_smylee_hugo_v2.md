@@ -3,7 +3,7 @@ title = "Updated Hugo Site Automation Generator"
 date = "2017-03-19T17:00:00-08:00"
 toc = false
 draft = false
-categories = ["Step-by-Step Guides", "AWS"]
+categories = ["AWS", "Site Update"]
 tags = ["AWS", "Lambda", "IAM", "SNS", "S3", "GitHub", "API Gateway", "Python"]
 +++
 
