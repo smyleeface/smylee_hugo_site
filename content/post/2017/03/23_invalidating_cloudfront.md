@@ -5,6 +5,7 @@ toc = false
 draft = false
 categories = ["Step-by-Step Guides", "AWS"]
 tags = ["AWS", "CloudFront", "S3"]
+image = "2017/03/cloudfront.png"
 +++
 
 I had a image uploaded that had some information I didn't mean to post. I made the change but it was already cached in CloudFront.
@@ -26,7 +27,7 @@ First I had to create a .json file with the path to the image in the bucket:
 }
 ```
 
-The run this command line with the CloudFront distribution id and the path to the .json file:
+Then run this command line with the CloudFront distribution id and the path to the .json file:
 
 ```
 aws cloudfront create-invalidation --distribution-id <DISTRIBUTION ID> --invalidation-batch file://<YOUR/PATH/TO/THE/FILE>.json
