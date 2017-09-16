@@ -1,5 +1,6 @@
 
 [![Build Status](https://travis-ci.org/smyleeface/smylee_hugo_site.svg?branch=master)](https://travis-ci.org/smyleeface/smylee_hugo_site)
+[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/smyleeface/smylee-com)
 
 # smylee_hugo_site
 
