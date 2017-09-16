@@ -29,3 +29,4 @@ artifacts:
   files:
     - ${CODEBUILD_SRC_DIR}/public/**/*
   discard-paths: yes
+  base-directory: public
