@@ -10,8 +10,11 @@ phases:
   build:
     commands:
       - echo Entered the install phase...
-      - go get -v github.com/gohugoio/hugo
-      - $GOPATH/bin/hugo --theme beg
+      - go get github.com/kardianos/govendor
+      - govendor get github.com/gohugoio/hugo
+      - go install github.com/gohugoio/hugo
+      - echo $GOPATH
+      - hugo --theme beg
 #      - curl -L -o ./tmp/master.zip https://github.com/smyleeface/smylee_hugo_site/archive/master.zip
 #      - unzip -o ./tmp/master.zip -d ./tmp/site
 #      - ./tmp/site/hugo --theme=bug --source=./tmp/site
