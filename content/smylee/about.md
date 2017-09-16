@@ -4,7 +4,6 @@ date = "2013-01-01T17:00:00-07:00"
 toc = false
 draft = false
 menu = true
-weight = 10
 +++
 
 My name is Patty, and this personal site I use to post things I like from programming, crafting, and random things that have happened.

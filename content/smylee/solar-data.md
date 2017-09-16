@@ -4,7 +4,6 @@ date = "2016-07-02T18:00:00-07:00"
 toc = false
 draft = false
 menu = true
-weight = 30
 +++
 
 <div id="solardata" ng-app="solardata">
