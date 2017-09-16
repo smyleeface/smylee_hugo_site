@@ -7,10 +7,9 @@ googleAnalytics = "UA-80166115-1"
 
 [Params]
   Author = "Patty R"
-  ImageCdnUrl = "http://cdn.smylee.com/"
-  DefaultImage = "static/default.png"
-  LogoImage = "static/logo.png"
+  DefaultImage = "/images/static/default.png"
+  LogoImage = "/images/static/logo.png"
 
 [taxonomies]
-	tag = "Tags"
-	category = "Categories"
+	tag = "tags"
+	category = "categories"

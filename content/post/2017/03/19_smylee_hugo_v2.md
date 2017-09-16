@@ -26,4 +26,4 @@ Upon success of the github signature check, it will send a `done` message to sns
 
 All that description is simply demonstrated with a diagram:
 
-<img src="http://cdn.smylee.com/images/2017/03/smylee_com_github_workflows.png" alt="Automating Smylee.com updates with Hugo workflow diagram" title="Automating Smylee.com updates with Hugo workflow diagram">
+<img src="/images/2017/03/smylee_com_github_workflows.png" alt="Automating Smylee.com updates with Hugo workflow diagram" title="Automating Smylee.com updates with Hugo workflow diagram">

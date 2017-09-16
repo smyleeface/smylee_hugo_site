@@ -40,7 +40,7 @@ fi
 ```
 
 ### Before
-<img src="http://cdn.smylee.com/images/2017/03/before-git-aware-prompt.png" alt="Before git-aware-prompt - with and without venv" title="Before git-aware-prompt - with and without venv">
+<img src="/images/2017/03/before-git-aware-prompt.png" alt="Before git-aware-prompt - with and without venv" title="Before git-aware-prompt - with and without venv">
 
 ### After
-<img src="http://cdn.smylee.com/images/2017/03/after-git-aware-prompt.png" alt="After git-aware-prompt - with and without venv" title="After git-aware-prompt - with and without venv">
+<img src="/images/2017/03/after-git-aware-prompt.png" alt="After git-aware-prompt - with and without venv" title="After git-aware-prompt - with and without venv">
