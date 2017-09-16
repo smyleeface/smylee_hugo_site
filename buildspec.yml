@@ -27,4 +27,5 @@ phases:
 #      - echo Build completed on `date`
 artifacts:
   files:
-    - ${CODEBUILD_SRC_DIR}/public/*
+    - ${CODEBUILD_SRC_DIR}/public/**/*
+  discard-paths: yes
