@@ -13,6 +13,9 @@ phases:
       - go get github.com/kardianos/govendor
       - govendor get github.com/gohugoio/hugo
       - go install github.com/gohugoio/hugo
+      - cd ${CODEBUILD_SRC_DIR}/themes
+      - git clone https://github.com/smyleeface/hugo_theme_beg.git beg
+      - cd ${CODEBUILD_SRC_DIR}
       - hugo --theme beg
       - ls -la ${CODEBUILD_SRC_DIR}/public
 #      - curl -L -o ./tmp/master.zip https://github.com/smyleeface/smylee_hugo_site/archive/master.zip
