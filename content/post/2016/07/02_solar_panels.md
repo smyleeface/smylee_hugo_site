@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["House"]
 tags = ["Solar Panels", "Electric"]
-image = "20160702_solar/cover2.png"
+thumbnail = "/images/20160702_solar/cover2.png"
 +++
 
 My solar panels are finally up and running! They've been up for about 2 months now but there was always something that needed to be adjusted or inspected. I signed the paper work on January 26, SIX months ago! It should've been on two-three months ago, but paperwork was messed up and they didn't include the new electric panel on the initial install. Then I was waiting for inspection, turns out, they were waiting for word on some work that was already completely a month an a half before I called to follow up! Anyway, at least they are finally done and I am grandfathered into the original <a href="http://www.sdge.com/clean-energy/overview/overview" rel="nofollow" target="_blank">Net Metering</a>.

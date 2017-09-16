@@ -7,8 +7,8 @@ googleAnalytics = "UA-80166115-1"
 
 [Params]
   Author = "Patty R"
-  DefaultImage = "/images/static/default.png"
-  LogoImage = "/images/static/logo.png"
+  DefaultImage = "images/static/default.png"
+  LogoImage = "images/static/logo.png"
 
 [taxonomies]
 	tag = "tags"

@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Tinkering"]
 tags = ["AWS", "Lambda", "SNS", "Dash Button", "IoT"]
-image = "covers/awsiotdash.png"
+thumbnail = "/images/covers/awsiotdash.png"
 +++
 
 I was curious about the programmable [Amazon IoT Dash Button](https://aws.amazon.com/iot/button/) and pre-ordered two buttons, thinking I might program one to give to my dad.

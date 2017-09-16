@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Step-by-Step Guides"]
 tags = ["AWS", "Lambda", "DynamoDB", "CloudWatch Events", "API Gateway", "IAM", "Python", "Enphase", "AngularJS 1.5", "Angular-Chart"]
-image = "20160702_solar/cover.png"
+thumbnail = "/images/20160702_solar/cover.png"
 +++
 
 ## Description

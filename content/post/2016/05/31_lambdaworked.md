@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Random"]
 tags = ["AWS", "Lambda"]
-image = "IMG953019_2.jpg"
+thumbnail = "/images/IMG953019_2.jpg"
 +++
 
 # My Site is Now Using Lambda!!

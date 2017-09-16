@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Step-by-Step Guides"]
 tags = ["OSX", "Terminal", "virtualenv", "git-aware-prompt"]
-image = "2017/03/before-git-aware-prompt.png"
+thumbnail = "/images/2017/03/before-git-aware-prompt.png"
 +++
 
 I was recommended this tool to help you know what git branch you are working on from the terminal prompt.

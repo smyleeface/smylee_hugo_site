@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["AWS"]
 tags = ["Email", "AWS", "SES Rules", "S3", "SNS", "KMS"]
-image = "2017/03/smylee_com_ses_workflows_sm.png"
+thumbnail = "/images/2017/03/smylee_com_ses_workflows_sm.png"
 +++
 
 I setup email receiving for patty at smylee.com using Amazon SES.

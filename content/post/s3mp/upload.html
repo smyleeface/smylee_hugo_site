@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+   <head>
+
+      <title>Evaporate Example</title>
+
+      <style>
+         html {
+            font-size: 1em !important;
+            color: #000 !important;
+            font-family: Arial !important;
+         }
+      </style>
+
+
+      <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script language="javascript" type="text/javascript" src="EvaporateJS/evaporate.js"></script>
+
+   </head>
+   <body>
+
+      <div>
+         <input type="file" id="file_object_to_upload"  multiple />
+      </div>
+
+
+      <script language="javascript">
+
+         require('crypto');
+
+         var config = {
+              signerUrl: 'https://po22ndwof7.execute-api.us-west-2.amazonaws.com/smylee_signer/smylee-sign',
+              aws_key: 'AKIAJ7S3FKFV55L3GKSQ',
+              bucket: smylee.com.assets,
+              cloudfront: true,
+              computeContentMd5: true,
+              cryptoMd5Method: function (data) { return crypto.createHash('md5').update(data).digest('base64'); }
+         };
+
+         return Evaporate.create(config)
+             .then(function (evaporate) {
+
+               var file = new File([""], "file_object_to_upload"),
+                   addConfig = {
+                     name: file.name,
+                     file: file,
+                     progress: function (progressValue) { console.log('Progress', progressValue); },
+                     complete: function (_xhr, awsKey) { console.log('Complete!'); },
+                   },
+                   overrides = {
+                     bucket: AWS_BUCKET // Shows that the bucket can be changed per
+                   };
+               evaporate.add(addConfig, overrrides)
+                   .then(function (awsObjectKey) {
+                         console.log('File successfully uploaded to:', awsObjectKey);
+                       },
+                       function (reason) {
+                         console.log('File did not upload sucessfully:', reason);
+                       });
+             });
+
+
+
+
+      </script>
+
+   </body>
+</html>

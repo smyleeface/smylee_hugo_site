@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Sewing"]
 tags = ["Halloween", "Costume", "Catrina", "Painting Party", "Headband", "Face Paint", "AWS Certification"]
-image = "201610/catrina_cover.png"
+thumbnail = "/images/201610/catrina_cover.png"
 +++
 
 My costume this year was a [La Calavera Catrina](https://en.wikipedia.org/wiki/La_Calavera_Catrina).

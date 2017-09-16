@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Coding"]
 tags = ["Debian", "nginx proxy", "Postgres", "saltstack"]
-image = "201609/note_cover.png"
+thumbnail = "/images/201609/note_cover.png"
 +++
 
 Worked on an odoo setup in saltstack in September. It runs on Debian and Prostgres both of which I've never used before. It's not difficult to find what you're looking for if you know the equivalent in it's respective program. These are my notes on the things I learned. Some of it might not make sense out of context.
