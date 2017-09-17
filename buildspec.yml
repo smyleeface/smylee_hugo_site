@@ -20,6 +20,7 @@ phases:
       - echo Entered the build phase...
       - echo Run hugo...
       - cd ${CODEBUILD_SRC_DIR}
+      - hugo version
       - hugo --theme beg
   post_build:
     commands:
