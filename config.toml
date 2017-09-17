@@ -1,3 +1,4 @@
+baseurl = "http://smylee.com"
 languageCode = "en-us"
 title = "smylee.com"
 enableRobotsTXT = true
