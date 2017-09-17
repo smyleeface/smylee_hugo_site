@@ -32,7 +32,3 @@ artifacts:
   base-directory: public
 
 
-aws s3 rm s3://smylee.com --exclude "images/**/*" --recursive
-aws s3 mv s3://smylee-codebuild/smylee_hugo/ s3://smylee.com --storage-class STANDARD --recursive
-
-aws s3 cp ./images/ s3://smylee.com/images --exclude testing
