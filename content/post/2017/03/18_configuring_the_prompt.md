@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Step-by-Step Guides"]
 tags = ["OSX", "Terminal", "virtualenv", "git-aware-prompt"]
-thumbnail = "/images/2017/03/before-git-aware-prompt.png"
+thumbnail = "http://cdn.smylee.com/images/2017/03/before-git-aware-prompt.png"
 +++
 
 I was recommended this tool to help you know what git branch you are working on from the terminal prompt.
@@ -40,7 +40,7 @@ fi
 ```
 
 ### Before
-<img src="/images/2017/03/before-git-aware-prompt.png" alt="Before git-aware-prompt - with and without venv" title="Before git-aware-prompt - with and without venv">
+<img src="http://cdn.smylee.com/images/2017/03/before-git-aware-prompt.png" alt="Before git-aware-prompt - with and without venv" title="Before git-aware-prompt - with and without venv">
 
 ### After
-<img src="/images/2017/03/after-git-aware-prompt.png" alt="After git-aware-prompt - with and without venv" title="After git-aware-prompt - with and without venv">
+<img src="http://cdn.smylee.com/images/2017/03/after-git-aware-prompt.png" alt="After git-aware-prompt - with and without venv" title="After git-aware-prompt - with and without venv">

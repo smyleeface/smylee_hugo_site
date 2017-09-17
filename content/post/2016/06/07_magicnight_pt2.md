@@ -33,7 +33,7 @@ When a custom Slack command is triggered, the corresponding command will change 
 ## API Gateway
 1. Create the API Gateway or use the API Gateway from the part 1.
 2. Add a new resource from the root of the API. Choose Lambda Function > us-west-2 > smylee_github_slack_action, save. After saving, a permissions prompt will popup choose OK.<br><br>
-<img src="/images/20160607-magicnight/api_gateway_slack_to_github_setup.png" class="imginitial" alt="API Gateway Slack to GitHub Settings" title="API Gateway Slack to GitHub Settings">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/api_gateway_slack_to_github_setup.png" class="imginitial" alt="API Gateway Slack to GitHub Settings" title="API Gateway Slack to GitHub Settings">
 2. Add a new Method > POST.<br><br>
 ![API Gateway Method POST](/images/20160607-magicnight/api_gateway_method_post.png "API Gateway Method POST")
 
@@ -43,7 +43,7 @@ When a custom Slack command is triggered, the corresponding command will change 
 ![Mapping Template FORM](/images/20160607-magicnight/body_mapping_1.png "Mapping Template FORM")
 
   4. Add mapping template > application/json > Checkmark.<br><br>
-<img src="/images/20160607-magicnight/body_mapping_2.png" class="imginitial" alt="Mapping Template JSON" title="Mapping Template JSON">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/body_mapping_2.png" class="imginitial" alt="Mapping Template JSON" title="Mapping Template JSON">
 
   4. Add { "body": $input.json("$") } > Save to both mapping templates.<br><br>
 ![Generate Template](/images/20160607-magicnight/body_mapping_3.png "Generate Template")
@@ -52,14 +52,14 @@ When a custom Slack command is triggered, the corresponding command will change 
 ![Deploy API](/images/20160607-magicnight/deploy_api.png "Deploy API")
 
 10. Once the API is created, within Stages from the left side, drill down to the resource and click the method.<br><br>
-<img src="/images/20160607-magicnight/api_gateway_post_url2.png" class="imginitial" alt="Deploy URL" title="Deploy URL">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/api_gateway_post_url2.png" class="imginitial" alt="Deploy URL" title="Deploy URL">
 
 11. This will display an "Invoke URL", copy this URL and we'll use it in the Slack Slash Command Setup section.<br><br>
 ![Invoke URL](/images/20160607-magicnight/api_gateway_invoke_url2.png "Invoke URL")
 
 ## Slack Slash Command Setup
 3. From settings choose "Add an app or integration".<br><br>
-<img src="/images/20160607-magicnight/add-app-integration.png" class="imginitial" alt="Add an app or integration" title="Add an app or integration">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/add-app-integration.png" class="imginitial" alt="Add an app or integration" title="Add an app or integration">
 
 4. In the textbox, type and choose "Slash Commands"<br><br>
 ![Slash Commands](/images/20160607-magicnight/slash-command.png "Slash Commands")
@@ -115,7 +115,7 @@ When a custom Slack command is triggered, the corresponding command will change 
 ![Create pull request](/images/20160607-magicnight/github_pull_request.png "Create pull request")
 
 3. If you have your Slack open, you should've received a message in the channel.<br><br>
-<img src="/images/20160607-magicnight/slack_pull_request_message_1.png" class="imginitial" alt="Recieve Slack Message" title="Recieve Slack Message">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/slack_pull_request_message_1.png" class="imginitial" alt="Recieve Slack Message" title="Recieve Slack Message">
 
 ## Testing
 5. [Download](/files/20160607-magicnight/sample_input.txt) sample payload. (Note: This sample data may throw an error as it is a payload from my setup. You may be able to find your payload in CloudWatch.)
@@ -129,7 +129,7 @@ When a custom Slack command is triggered, the corresponding command will change 
 
 1. You should receive two messages for each request. One from the return of the function which runs the GitHub command and second one is a message of the pull request status which is triggered from the setup of part 1 of this guide.
 2. Invalid commands will return with an invalid message.<br><br>
-<img src="/images/20160607-magicnight/not_valid.png" class="imginitial" alt="Invalid Command" title="Invalid Command">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/not_valid.png" class="imginitial" alt="Invalid Command" title="Invalid Command">
 
 ## AWS Costs for creating this project
 * AWS provides a lot of services for free for the first 12 months of sign up and beyond. More information can be found on AWS pricing pages.

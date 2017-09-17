@@ -1,4 +1,4 @@
-baseurl = "smylee.com"
+baseurl = "http://smylee.com/"
 languageCode = "en-us"
 title = "smylee.com"
 enableRobotsTXT = true
@@ -9,6 +9,7 @@ googleAnalytics = "UA-80166115-1"
   Author = "Patty R"
   DefaultImage = "images/static/default.png"
   LogoImage = "images/static/logo.png"
+  CdnBaseUrl = "http://cdn.smylee.com/"
 
 [taxonomies]
 	tag = "tags"

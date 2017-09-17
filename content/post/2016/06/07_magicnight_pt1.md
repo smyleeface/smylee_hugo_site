@@ -21,7 +21,7 @@ When a GitHub pull request is made, it will trigger an alert on Slack. A magic n
 ![Create a Slack Channel](/images/20160607-magicnight/create-a-channel.png "Create a Slack Channel")
 
 3. From settings choose "Add an app or integration".<br><br>
-<img src="/images/20160607-magicnight/add-app-integration.png" class="imginitial" alt="Add an app or integration" title="Add an app or integration">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/add-app-integration.png" class="imginitial" alt="Add an app or integration" title="Add an app or integration">
 
 4. In the textbox, type and choose "Incoming Webhooks"<br><br>
 ![Incoming Webhooks](/images/20160607-magicnight/incoming-webhooks.png "Incoming Webhooks")
@@ -36,7 +36,7 @@ When a GitHub pull request is made, it will trigger an alert on Slack. A magic n
 
 ## AWS Lambda Setup
 1. Make sure you note the region you are using.<br><br>
-<img src="/images/20160607-magicnight/lambda_region.png" class="imginitial" alt="Lambda Region" title="Lambda Region">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/lambda_region.png" class="imginitial" alt="Lambda Region" title="Lambda Region">
 
 1. Create a new Lambda Function; skip selecting a blueprint.
 2. Configure the Lambda function:
@@ -60,7 +60,7 @@ When a GitHub pull request is made, it will trigger an alert on Slack. A magic n
 ![Lambda will prompt for inputs](/images/20160607-magicnight/lambda_test_input_screen.png "Lambda will prompt for inputs")
 
 11. Save and test! If you have your Slack open, you should've received a message in the channel where you setup the incoming Webhook. If you used the sample payload data, it will look something like this:<br><br>
-<img src="/images/20160607-magicnight/api_gateway_slack_test_sample.png" class="imginitial" alt="Test button Slack response" title="Test button Slack response">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/api_gateway_slack_test_sample.png" class="imginitial" alt="Test button Slack response" title="Test button Slack response">
 
 12. Now your Lambda function is ready to go, let's connect to an API Gateway!
 
@@ -69,25 +69,25 @@ When a GitHub pull request is made, it will trigger an alert on Slack. A magic n
 2. Create a new Resource. Enter a name and use the default for the resource path.
 3. Click on the new Resource and create a new Method > Post
 4. Choose Lambda Function > us-west-2 > smylee_github_slack_alert, save. After saving, a permissions prompt will popup choose OK.<br><br>
-<img src="/images/20160607-magicnight/api_lambda_setup.png" class="imginitial" alt="API Gateway Lambda Setup" title="API Gateway Lambda Setup">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/api_lambda_setup.png" class="imginitial" alt="API Gateway Lambda Setup" title="API Gateway Lambda Setup">
 
 5. Click on the method function just created and four boxes will appear on the right side, click the Test Icon.<br><br>
 ![Test API Gateway](/images/20160607-magicnight/api_gateway_method_execution_screen.png "Test API Gateway")
 
 6. In the Request Body textarea, paste the same payload used for the pull request event. (https://developer.github.com/v3/activity/events/types/#pullrequestevent)<br><br>
-<img src="/images/20160607-magicnight/awi_gateway_test_request_body.png" class="imginitial" alt="Request Body textarea" title="Request Body textarea">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/awi_gateway_test_request_body.png" class="imginitial" alt="Request Body textarea" title="Request Body textarea">
 
 7. Click the Test button and if you have your Slack open, you should've recived a message in the channel you setup the incoming Webhook!<br><br>
-<img src="/images/20160607-magicnight/api_gateway_slack_test_sample.png" class="imginitial" alt="Test button Slack response" title="Test button Slack response">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/api_gateway_slack_test_sample.png" class="imginitial" alt="Test button Slack response" title="Test button Slack response">
 
 8. Now deploy the API from Actions > Deploy API.<br><br>
-<img src="/images/20160607-magicnight/api_gateway_deploy_api.png" class="imginitial" alt="Deploy API" title="Deploy API">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/api_gateway_deploy_api.png" class="imginitial" alt="Deploy API" title="Deploy API">
 
 9. In Deployment Stage, Choose [New Stage], in the stage name enter "prod" (this will be part of the API url.)<br><br>
 ![Deploy API Setup](/images/20160607-magicnight/api_gateway_deploy_setup.png "Deploy API Setup")
 
 10. Once the API is created, within Stages from the left side, drill down to the resource and click the method.<br><br>
-<img src="/images/20160607-magicnight/api_gateway_post_url.png" class="imginitial" alt="Deploy URL" title="Deploy URL">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/api_gateway_post_url.png" class="imginitial" alt="Deploy URL" title="Deploy URL">
 
 11. This will display an "Invoke URL", copy this URL and we'll use it in the GitHub Setup section.<br><br>
 ![Invoke URL](/images/20160607-magicnight/api_gateway_invoke_url.png "Invoke URL")
@@ -110,10 +110,10 @@ When a GitHub pull request is made, it will trigger an alert on Slack. A magic n
 ![Create pull request](/images/20160607-magicnight/github_pull_request.png "Create pull request")
 
 3. If you have your Slack open, you should've received a message in the channel!<br><br>
-<img src="/images/20160607-magicnight/slack_pull_request_message_1.png" class="imginitial" alt="Receive Slack Message" title="Receive Slack Message">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/slack_pull_request_message_1.png" class="imginitial" alt="Receive Slack Message" title="Receive Slack Message">
 
 4. Try closing, opening, and merging the pull request from GitHub and you should receive messages for each action (merge will report closed).<br><br>
-<img src="/images/20160607-magicnight/slack_open_close_message.png" class="imginitial" alt="Close,Open,Merge Repo" title="Close,Open,Merge Repo">
+<img src="http://cdn.smylee.com/images/20160607-magicnight/slack_open_close_message.png" class="imginitial" alt="Close,Open,Merge Repo" title="Close,Open,Merge Repo">
 
 
 ## Footnotes

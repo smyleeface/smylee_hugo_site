@@ -67,16 +67,16 @@ Texting charges to your phone will apply depending on your plan. Keep unchecked 
 
 ## TRY IT!
 1. Create a new user.<br>
-<img src="/images/20160617-basiccognito/create_new_user.png" class="imginitial" alt="Create a new user" title="Create a new user">
+<img src="http://cdn.smylee.com/images/20160617-basiccognito/create_new_user.png" class="imginitial" alt="Create a new user" title="Create a new user">
 
 2. Verify user with code from email or text.<br>
-<img src="/images/20160617-basiccognito/verify_user.png" class="imginitial" alt="Verify user" title="Verify user">
+<img src="http://cdn.smylee.com/images/20160617-basiccognito/verify_user.png" class="imginitial" alt="Verify user" title="Verify user">
 
 3. Login as user.<br>
-<img src="/images/20160617-basiccognito/login_user.png" class="imginitial" alt="Login as user" title="Login as user">
+<img src="http://cdn.smylee.com/images/20160617-basiccognito/login_user.png" class="imginitial" alt="Login as user" title="Login as user">
 
 4. Logout as user.<br>
-<img src="/images/20160617-basiccognito/logout_user.png" class="imginitial" alt="Logout User" title="Logout User">
+<img src="http://cdn.smylee.com/images/20160617-basiccognito/logout_user.png" class="imginitial" alt="Logout User" title="Logout User">
 
 4. View user in Cognito.<br>
 ![Coginto User List](/images/20160617-basiccognito/user_list.png "Coginto User List")

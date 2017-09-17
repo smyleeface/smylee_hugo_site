@@ -10,7 +10,7 @@ tags = ["Walking Dead", "Toys"]
 
 <p>Raul surprised me with some gifts with a theme... The Walking Dead! :D</p>    
 <p>First he got me the books with the Govenor's backstory. Then a few days later we recieved the figurines, card game, and board game... OH MY!</p>    
-<p><img alt="The Walking Dead: Card game, board game, two books, and two vinyl figures." src="/images/2013/07/2013-07-09_17-35-38_476_zps46c7a255.jpg" title="The Walking Dead Goodies! Love love love!" /></p>    
+<p><img alt="The Walking Dead: Card game, board game, two books, and two vinyl figures." src="http://cdn.smylee.com/images/2013/07/2013-07-09_17-35-38_476_zps46c7a255.jpg" title="The Walking Dead Goodies! Love love love!" /></p>    
 <p>Now I want all the Pop! Vinyl Walking Dead Toys. LOL :x</p>    <hr />  
 <p><strong>UPDATE 8/3/2013:</strong></p>    
 <p>I finished the book&nbsp;Walking Dead Rise of the Governor. Felt like it started off slow, but about 1/3 into the book it picked up. Then at the end:&nbsp;*shok*</p>    

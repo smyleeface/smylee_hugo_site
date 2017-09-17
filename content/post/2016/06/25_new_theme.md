@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Site Update"]
 tags = ["Hugo", "Lambda"]
-thumbnail = "/images/covers/newtheme.png"
+thumbnail = "http://cdn.smylee.com/images/covers/newtheme.png"
 +++
 
 I finally got around to playing with Hugo Themes and making my own. I'm not a front-end developer and I wanted something very simple that didn't take too much time to make.

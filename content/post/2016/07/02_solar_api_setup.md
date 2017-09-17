@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Step-by-Step Guides"]
 tags = ["AWS", "Lambda", "DynamoDB", "CloudWatch Events", "API Gateway", "IAM", "Python", "Enphase", "AngularJS 1.5", "Angular-Chart"]
-thumbnail = "/images/20160702_solar/cover.png"
+thumbnail = "http://cdn.smylee.com/images/20160702_solar/cover.png"
 +++
 
 ## Description
@@ -25,74 +25,74 @@ Because I have a limit on Enphase's API calls, I collect the data from my solar 
 ## Setup DynamoDB Schema with Python and Boto3
 * Determined and scripted the table creation and schema for the DynamoDB. (This could've been done using a <a href="https://aws.amazon.com/blogs/aws/dynamodb-local-for-desktop-development/" target="_blank">local DynamoDB</a>, which I've done before, but I was too lazy to setup.)
 <br>
-<img src="/images/20160702_solar/2016-07-03_22-40-48.png" alt="DynamoDB Schema" title="DynamoDB Schema">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_22-40-48.png" alt="DynamoDB Schema" title="DynamoDB Schema">
 
 ## Getting the Solar Panel Data From Enphase
 * Create an account on http://developer.enphase.com.
 * Choose a plan (Watt is the free use with some catches)
 <br>
-<img src="/images/20160702_solar/2016-07-03_18-16-031.png" alt="Choose Enphase Plan" title="Choose Enphase Plan">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_18-16-031.png" alt="Choose Enphase Plan" title="Choose Enphase Plan">
 * Create a new application.
 <br>
-<img src="/images/20160702_solar/2016-07-03_18-35-141.png" alt="Create a new application" title="Create a new application">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_18-35-141.png" alt="Create a new application" title="Create a new application">
 * Open the new application and copy the copy API Key for later use.
-<br><img src="/images/20160702_solar/2016-07-03_18-35-47.png" alt="Create a new application" title="Create a new application">
+<br><img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_18-35-47.png" alt="Create a new application" title="Create a new application">
 * Copy the Authorization URL into your browser and allow access.
-<br><img src="/images/20160702_solar/2016-07-03_18-37-01.png" alt="Copy the Authorization URL" title="Copy the Authorization URL">
+<br><img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_18-37-01.png" alt="Copy the Authorization URL" title="Copy the Authorization URL">
 * After allowing access, copy user id key it displays on the screen for later use.
-<br><img src="/images/20160702_solar/2016-07-03_18-37-25.png" alt="Copy user id for later use" title="Copy user id for later use">
+<br><img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_18-37-25.png" alt="Copy user id for later use" title="Copy user id for later use">
 * If you have an enlighten profile, you will see that application in the list of authorized apps.
-<br><img src="/images/20160702_solar/2016-07-02_22-25-20.png" alt="Enlighten Profile Application Access" title="Enlighten Profile Application Access">
+<br><img src="http://cdn.smylee.com/images/20160702_solar/2016-07-02_22-25-20.png" alt="Enlighten Profile Application Access" title="Enlighten Profile Application Access">
 * Get the data from the Enphase API using the code on GitHub: https://github.com/smyleeface/smylee_solar_data/blob/master/dynamo_create_and_put.py. To the code, add the API key and user id copied earlier in the URL. You will also need the system ID which is found in your enlighten profile, in the Enphase App, or on the Enphase device box.
 <br>
-<img src="/images/20160702_solar/2016-07-03_17-45-35.png" alt="Connecting to Enphase via Python Script" title="Connecting to Enphase via Python Script">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_17-45-35.png" alt="Connecting to Enphase via Python Script" title="Connecting to Enphase via Python Script">
 * Store data into DynamoDB
 <br>
-<img src="/images/20160702_solar/2016-07-03_22-29-04.png" alt="Storing Data into DynamoDB" title="Storing Data into DynamoDB">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_22-29-04.png" alt="Storing Data into DynamoDB" title="Storing Data into DynamoDB">
 
 ## Add a Lambda Function to Store Data
 * Once the data was being stored correctly, copied the python script to the Lambda function.
 <br>
-<img src="/images/20160702_solar/2016-07-02_17-30-11.png" alt="Storing Data into DynamoDB" title="Storing Data into DynamoDB">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-02_17-30-11.png" alt="Storing Data into DynamoDB" title="Storing Data into DynamoDB">
 * I created a new IAM role that allows connection to DynamoDB. The default lambda_dynamo role that AWS will allow CRUD of items in a DynamoDB table, but the script requires describing and creating table also. Modify the lambda_dynamo role to include the DynamoDB policy of "CreateTable" and "DescribeTable".
 <br>
-<img src="/images/20160702_solar/2016-07-03_22-36-38.png" alt="Updating Lambda DynamoDB IAM Policy" title="Updating Lambda DynamoDB IAM Policy">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_22-36-38.png" alt="Updating Lambda DynamoDB IAM Policy" title="Updating Lambda DynamoDB IAM Policy">
 * Once that is saved, add an Event to do a cron run at 11:55AM & 11:55PM PT daily.
 <br>
-<img src="/images/20160702_solar/2016-07-03_22-54-59.png" alt="Add event cron to update DynamoDB twice a day" title="Add event cron to update DynamoDB twice a day">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_22-54-59.png" alt="Add event cron to update DynamoDB twice a day" title="Add event cron to update DynamoDB twice a day">
 
 ## Getting the Solar Panel Data from DynamoDB
 * Using the code on GitHub: https://github.com/smyleeface/smylee_solar_data/blob/master/dynamo_get_data.py to pull all the data, daily, monthly and current. In order to test in terminal, you will need to have the AWS CLI configured with and access key and secret id of a user who has access to run queries against DynamoDB.
 <br>
-<img src="/images/20160702_solar/2016-07-03_22-57-10.png" alt="Python script pulls data from DynamoDB" title="Python script pulls data from DynamoDB">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_22-57-10.png" alt="Python script pulls data from DynamoDB" title="Python script pulls data from DynamoDB">
 
 ## Add a Lambda Function to Get Data
 * Once the data was being pulled correctly, copied the python script to the Lambda function.
 <br>
-<img src="/images/20160702_solar/2016-07-02_21-08-22.png" alt="Lambda function to get data from DynamoDB" title="Lambda function to get data from DynamoDB">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-02_21-08-22.png" alt="Lambda function to get data from DynamoDB" title="Lambda function to get data from DynamoDB">
 * Test the Lambda function. The different payloads are commented in the dynamodb_data.py file, just change the date.
 <br>
 <br>
-<img src="/images/20160702_solar/2016-07-03_23-01-51.png" alt="Different Payload Examples" title="Different Payload Examples">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_23-01-51.png" alt="Different Payload Examples" title="Different Payload Examples">
 <br>
 <br>
-<img src="/images/20160702_solar/2016-07-03_23-02-08.png" alt="Payload Sample Data" title="Payload Sample Data">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_23-02-08.png" alt="Payload Sample Data" title="Payload Sample Data">
 <br>
 <br>
-<img src="/images/20160702_solar/2016-07-03_23-05-23.png" alt="Payload Sample Test" title="Payload Sample Test">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_23-05-23.png" alt="Payload Sample Test" title="Payload Sample Test">
 
 
 
 ## Connect API Gateway to Lambda
 * Add a new GET Resource to an exiting or new API Gateway. Choose the Lambda function that gets the data from DynamoDB.
 <br>
-<img src="/images/20160702_solar/2016-07-02_21-11-16.png" alt="Add a GET Resource to existing or new API" title="Add a GET Resource to existing or new API">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-02_21-11-16.png" alt="Add a GET Resource to existing or new API" title="Add a GET Resource to existing or new API">
 * Under "method request", add two querystrings: filter & getType
 <br>
-<img src="/images/20160702_solar/2016-07-03_23-08-58.png" alt="Add method execution" title="Add method execution">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_23-08-58.png" alt="Add method execution" title="Add method execution">
 * Under "integration request" > body mapping templates, choose "When there are no templates defined" and add template code for application/json.
 <br>
-<img src="/images/20160702_solar/2016-07-03_23-10-54.png" alt="Add method execution" title="Add method execution">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_23-10-54.png" alt="Add method execution" title="Add method execution">
 
 	```
 	#set($keys = [])
@@ -109,20 +109,20 @@ Because I have a limit on Enphase's API calls, I collect the data from my solar 
 
 * Test the API Gateway. The different payloads are commented in the dynamodb_data.py file, just change the date.
 <br>
-<img src="/images/20160702_solar/2016-07-03_23-14-48.png" alt="Test Payload in API Gateway" title="Test Payload in API Gateway">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_23-14-48.png" alt="Test Payload in API Gateway" title="Test Payload in API Gateway">
 * Enable CORS.
 <br>
-<img src="/images/20160702_solar/2016-07-03_23-16-09.png" alt="Enable CORS" title="Enable CORS">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_23-16-09.png" alt="Enable CORS" title="Enable CORS">
 * Deploy API. Get the URL for use in the later in AngularJS.
 <br>
-<img src="/images/20160702_solar/2016-07-03_23-19-08.png" alt="Deploy API" title="Deploy API">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_23-19-08.png" alt="Deploy API" title="Deploy API">
 
 
 ## Call API Gateway with AngularJS
 * Downloaded AngularJS, Angular-Chart, and Chart.js. Use the URL from the API Gateway to get the data from DynamoDB to the Angular-Charts. You can find the code on GitHub: https://github.com/smyleeface/smylee_solar_data , solar.html & solar_angular.js
 * After some tinkering, finally got the charts to display. More bars will be added on the fly as more data is added to the database. See the <a href="/smylee/solar_data/">updated solar data page</a>.
 <br>
-<img src="/images/20160702_solar/2016-07-03_23-25-00.png" alt="Solar Charts" title="Solar Charts">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-03_23-25-00.png" alt="Solar Charts" title="Solar Charts">
 
 
 ## Footnotes
@@ -131,7 +131,7 @@ Because I have a limit on Enphase's API calls, I collect the data from my solar 
 * Timezone! Everything on AWS uses UTC so you must specify a timezone.
 * Event schedules in CloudWatch has a specific way of writing cron.
 <br>
-<img src="/images/20160702_solar/2016-07-02_17-42-15.png" alt="Event CRON Writing Rules" title="Event CRON Writing Rules">
+<img src="http://cdn.smylee.com/images/20160702_solar/2016-07-02_17-42-15.png" alt="Event CRON Writing Rules" title="Event CRON Writing Rules">
 
 
 ## AWS Costs for creating this project
