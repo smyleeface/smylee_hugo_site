@@ -25,8 +25,5 @@ phases:
   post_build:
     commands:
       - echo Entered the post_build phase...
+      - aws s3 cp ${CODEBUILD_SRC_DIR}/public/ s3://staging.smylee.com/ --storage-class STANDARD --recursive
       - cd ${CODEBUILD_SRC_DIR}/public
-artifacts:
-  files:
-    - '**/*'
-  base-directory: public
