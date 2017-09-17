@@ -5,5 +5,5 @@ phases:
       # https://gohugo.io/getting-started/installing/#source
       - echo Entered the install phase...
       - echo Installing govendor...
-      - curl -L https://github.com/gohugoio/hugo/releases/download/v0.27.1/hugo_0.27.1_Linux-64bit.tar.gz
+      - curl https://github.com/gohugoio/hugo/releases/download/v0.27.1/hugo_0.27.1_Linux-64bit.tar.gz
       - unzip -o hugo_0.27.1_Linux-64bit.tar.gz -d hugo
