@@ -1,29 +1,10 @@
 version: 0.2
 phases:
-  install:
-    commands:
-      # https://gohugo.io/getting-started/installing/#source
-      - echo Entered the install phase...
-      - echo Installing govendor...
-      - go get github.com/kardianos/govendor
-      - echo Installing hugo...
-      - govendor get github.com/gohugoio/hugo
-      - go install github.com/gohugoio/hugo
-  pre_build:
-    commands:
-      - echo Entered the pre_build phase...
-      - echo Installing theme...
-      - cd ${CODEBUILD_SRC_DIR}/themes
-      - git clone https://github.com/smyleeface/hugo_theme_beg.git beg
-  build:
-    commands:
-      - echo Entered the build phase...
-      - echo Run hugo...
-      - cd ${CODEBUILD_SRC_DIR}
-      - hugo version
-      - hugo --theme beg
   post_build:
     commands:
       - echo Entered the post_build phase...
-      - aws s3 rm s3://staging.smylee.com/ --recursive
-      - aws s3 cp ${CODEBUILD_SRC_DIR}/public/ s3://staging.smylee.com/ --storage-class STANDARD --recursive
+      # TODO: check that staging has data before deleting
+      - echo empty smylee.com...
+      - aws s3 rm s3://smylee.com --exclude "images/**/*" --recursive
+      - echo move smylee.com ...
+      - aws s3 mv s3://staging.smylee.com/ s3://smylee.com/ --storage-class STANDARD --recursive
