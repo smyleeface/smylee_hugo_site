@@ -12,8 +12,6 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
-      - cd ${CODEBUILD_SRC_DIR}
-      - git checkout -B staging
       - echo Installing theme...
       - cd ${CODEBUILD_SRC_DIR}/themes
       - git clone https://github.com/smyleeface/hugo_theme_beg.git beg
@@ -29,3 +27,9 @@ phases:
       - echo Entered the post_build phase...
       - aws s3 rm s3://staging.smylee.com/ --recursive
       - aws s3 cp ${CODEBUILD_SRC_DIR}/public/ s3://staging.smylee.com/ --storage-class STANDARD --recursive
+#        echo empty smylee.com... &&
+#        aws s3 rm s3://smylee.com --exclude "images/**/*" --recursive && \
+#        echo move smylee.com ... && \
+#        aws s3 mv s3://staging.smylee.com/ s3://smylee.com/ --storage-class STANDARD --recursive && \
+#        echo $(date) > datetime.txt && \
+#        aws s3 cp ./datetime.txt s3://smylee.com/ --storage-class STANDARD
