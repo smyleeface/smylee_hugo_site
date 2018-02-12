@@ -2,6 +2,6 @@ version: 0.2
 phases:
   build:
     commands:
-      - cd theme/beg
-      - ls -la
+      - cd themes/beg
+      - ls
       #- hugo --theme beg
