@@ -2,7 +2,6 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo $PWD
-      - echo "HELLO WORLD"
+      - cd theme/beg
       - ls -la
-      - hugo --theme smylee
+      #- hugo --theme beg
