@@ -2,7 +2,13 @@ version: 0.2
 phases:
   build:
     commands:
-      - cd themes
-      - git clone https://github.com/smyleeface/hugo_theme_beg.git beg
-      - ls -la beg
-      #- hugo --theme beg
+      - echo "DOWNLOAD THEME"
+      - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
+      - hugo --theme beg
+
+# publishes to: https://s3-us-west-2.amazonaws.com/staging.smylee.com/CodeBuildArtifacts/*
+artifacts:
+  files:
+    - */**
+  base-directory: public
+  discard-paths: yes
