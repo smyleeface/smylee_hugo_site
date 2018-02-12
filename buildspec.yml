@@ -9,6 +9,6 @@ phases:
 # publishes to: https://s3-us-west-2.amazonaws.com/staging.smylee.com/CodeBuildArtifacts/*
 artifacts:
   files:
-    - */**
+    - "*/**"
   base-directory: public
   discard-paths: yes
