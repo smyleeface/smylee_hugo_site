@@ -4,4 +4,5 @@ phases:
     commands:
       - echo $PWD
       - echo "HELLO WORLD"
-      #hugo --theme beg
+      - ls -la
+      - hugo --theme smylee
