@@ -2,7 +2,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - cd themes/beg
-      - git status
-      - git remote -v
+      - cd themes
+      - git clone https://github.com/smyleeface/hugo_theme_beg.git beg
+      - ls -la beg
       #- hugo --theme beg
