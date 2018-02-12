@@ -4,5 +4,5 @@ phases:
     commands:
       - cd themes/beg
       - git status
-      - git remote
+      - git remote -v
       #- hugo --theme beg
