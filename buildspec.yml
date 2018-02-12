@@ -3,5 +3,6 @@ phases:
   build:
     commands:
       - cd themes/beg
-      - ls
+      - git status
+      - git remote
       #- hugo --theme beg
