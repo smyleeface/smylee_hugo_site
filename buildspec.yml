@@ -2,10 +2,13 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "DOWNLOAD THEME"
+      - echo "*** DOWNLOAD THEME"
       - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
       - hugo --theme beg
-      - ls -la public
+  post_build:
+    commands:
+      - echo "*** EMPTY S3 STAGING BUCKET"
+      - aws s3 rm s3://staging.smylee.com --recursive
 
 # publishes to: https://s3-us-west-2.amazonaws.com/staging.smylee.com/CodeBuildArtifacts/*
 artifacts:
