@@ -4,7 +4,7 @@ phases:
     commands:
       - echo "*** DOWNLOAD THEME"
       - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
-      - hugo --theme beg
+      - hugo --theme beg --baseURL http://staging.smylee.com
   post_build:
     commands:
       - echo "*** EMPTY S3 STAGING BUCKET"
