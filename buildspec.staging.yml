@@ -6,14 +6,21 @@ phases:
       - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
       - echo "*** BUILD STAGING"
       - hugo --theme beg --baseURL http://staging.smylee.com/
-      - ls -la ${CODEBUILD_SRC_DIR}/public
+      - ls -la ${CODEBUILD_SRC_DIR}
+      - pwd
   post_build:
     commands:
       - echo "*** EMPTY S3 STAGING BUCKET"
       - aws s3 rm s3://staging.smylee.com --recursive
 
-# publishes to: https://s3-us-west-2.amazonaws.com/staging.smylee.com/CodeBuildArtifacts/*
-artifacts:
-  files:
-    - '**/*'
-  base-directory: ${CODEBUILD_SRC_DIR}/public
+      # publishes to: https://s3-us-west-2.amazonaws.com/staging.smylee.com/CodeBuildArtifacts/*
+      - echo "*** PUBLISHING TO S3 STAGING BUCKET"
+      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://staging.smylee.com/CodeBuildArtifacts --recursive
+
+#NOTE: Cannot use the `artifacts` section
+# it works ok, in CodeBuild
+# but is ignored when CodeBuild is used in CodePipeline
+#artifacts:
+#  files:
+#    - '**/*'
+#  base-directory: ${CODEBUILD_SRC_DIR}/public
