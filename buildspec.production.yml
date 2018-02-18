@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo "*** DOWNLOAD THEME"
+      - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
+      - echo "*** BUILD PRODUCTION"
+      - hugo --theme beg --baseURL http://smylee.com/
+  post_build:
+    commands:
+      - echo "*** EMPTY S3 PRODUCTION BUCKET"
+      - aws s3 rm s3://smylee.com --recursive
+
+# publishes to: https://s3-us-west-2.amazonaws.com/smylee.com/CodeBuildArtifacts/*
+artifacts:
+  files:
+    - '**/*'
+  base-directory: public

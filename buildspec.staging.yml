@@ -4,6 +4,7 @@ phases:
     commands:
       - echo "*** DOWNLOAD THEME"
       - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
+      - echo "*** BUILD STAGING"
       - hugo --theme beg --baseURL http://staging.smylee.com/
   post_build:
     commands:
