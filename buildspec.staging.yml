@@ -15,7 +15,7 @@ phases:
 
       # publishes to: https://s3-us-west-2.amazonaws.com/staging.smylee.com/CodeBuildArtifacts/*
       - echo "*** PUBLISHING TO S3 STAGING BUCKET"
-      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://staging.smylee.com/CodeBuildArtifacts --recursive
+      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://staging.smylee.com --recursive
 
 #NOTE: Cannot use the `artifacts` section
 # it works ok, in CodeBuild
