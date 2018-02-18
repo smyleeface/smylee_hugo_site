@@ -6,8 +6,6 @@ phases:
       - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
       - echo "*** BUILD STAGING"
       - hugo --theme beg --baseURL http://staging.smylee.com/
-  post_build:
-    commands:
       - echo "*** EMPTY S3 STAGING BUCKET"
       - aws s3 rm s3://staging.smylee.com --recursive
 
