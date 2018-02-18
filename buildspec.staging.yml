@@ -18,4 +18,3 @@ artifacts:
   files:
     - '**/*'
   base-directory: ${CODEBUILD_SRC_DIR}/public
-  discard-paths: yes
