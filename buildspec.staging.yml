@@ -6,8 +6,7 @@ phases:
       - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
       - echo "*** BUILD STAGING"
       - hugo --theme beg --baseURL http://staging.smylee.com/
-      - ls -la ${CODEBUILD_SRC_DIR}
-      - pwd
+      - ls -la ${CODEBUILD_SRC_DIR}/public
   post_build:
     commands:
       - echo "*** EMPTY S3 STAGING BUCKET"
