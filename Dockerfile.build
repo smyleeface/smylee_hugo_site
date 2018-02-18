@@ -1,0 +1,33 @@
+FROM alpine:3.6
+
+ENV HUGO_VERSION 0.36
+ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
+
+EXPOSE 1313
+
+VOLUME /smylee_com
+WORKDIR /smylee_com
+
+# Install bash
+RUN apk update && \
+    apk add git bash
+
+# Install python 3, pip
+RUN apk add python3 && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --upgrade pip setuptools && \
+    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
+    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi
+
+# Install aws cli
+RUN pip install awscli
+
+# Cleanup
+RUN rm -rf /var/cache/apk/* && \
+    rm -r /root/.cache
+
+# Download and install hugo
+ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz /usr/local/
+RUN tar xzf /usr/local/${HUGO_BINARY}.tar.gz -C /usr/local/bin/ && \
+    rm /usr/local/${HUGO_BINARY}.tar.gz
