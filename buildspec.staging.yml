@@ -6,7 +6,10 @@ phases:
       - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
       - echo "*** BUILD STAGING"
       - hugo --theme beg --baseURL http://staging.smylee.com/
-      - ls -la ${CODEBUILD_SRC_DIR}/public
+      - ls -la ${CODEBUILD_SRC_DIR}
+      - pwd
+  post_build:
+    commands:
       - echo "*** EMPTY S3 STAGING BUCKET"
       - aws s3 rm s3://staging.smylee.com --recursive
 
@@ -14,4 +17,5 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: public
+  base-directory: ${CODEBUILD_SRC_DIR}/public
+  discard-paths: yes
