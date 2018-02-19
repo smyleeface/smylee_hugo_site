@@ -30,3 +30,8 @@ docker build -t smylee_com_hugo -f Dockerfile.build . && \
 docker tag smylee_com_hugo:latest 952671759649.dkr.ecr.us-west-2.amazonaws.com/smylee_com_hugo:latest && \
 docker push 952671759649.dkr.ecr.us-west-2.amazonaws.com/smylee_com_hugo:latest
 ```
+
+## Deploy Pipeline
+
+![Smylee.com Deploy Pipeline](https://user-images.githubusercontent.com/8292341/36361300-c16c26fa-14df-11e8-9027-bcf09ffbc977.png "Smylee.com pipeline")
+

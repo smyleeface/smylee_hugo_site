@@ -20,6 +20,8 @@ phases:
 #NOTE: Cannot use the `artifacts` section
 # it works ok, in CodeBuild
 # but is ignored when CodeBuild is used in CodePipeline
+# https://stackoverflow.com/questions/43131439/aws-codepipeline-adding-artifacts-to-s3-in-less-useful-format-than-running-steps
+# https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-simple-s3.html#s3-add-stage-part-2-console
 #artifacts:
 #  files:
 #    - '**/*'
