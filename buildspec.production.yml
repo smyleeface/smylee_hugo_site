@@ -5,7 +5,7 @@ phases:
       - echo "*** DOWNLOAD THEME"
       - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
       - echo "*** BUILD PRODUCTION"
-      - hugo --theme beg --baseURL http://smylee.com/
+      - hugo --theme beg --baseURL https://smylee.com/
       - ls -la ${CODEBUILD_SRC_DIR}
       - pwd
   post_build:

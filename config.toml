@@ -6,9 +6,9 @@ googleAnalytics = "UA-80166115-1"
 
 [Params]
   Author = "Patty R"
-  DefaultImage = "http://cdn.smylee.com/static/default.png"
-  LogoImage = "http://cdn.smylee.com/static/logo.png"
-  CdnBaseUrl = "http://cdn.smylee.com/"
+  DefaultImage = "https://cdn.smylee.com/static/default.png"
+  LogoImage = "https://cdn.smylee.com/static/logo.png"
+  CdnBaseUrl = "https://cdn.smylee.com/"
 
 [taxonomies]
 	tag = "tags"
