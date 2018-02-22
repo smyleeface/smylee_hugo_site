@@ -25,7 +25,7 @@ menu = true
 		<canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
 	</div>
 	<br><br>
-    <div class="poweredby">Powered by&nbsp;&nbsp;<a href="http://enphase.com" target="_blank"><img src="http://cdn.smylee.com/images/20160702_solar/ENPH_logo_scr_RGB_API_sm.png" alt="Enphase Energy" class="no_border"></a></div>
+    <div class="poweredby">Powered by&nbsp;&nbsp;<a href="http://enphase.com" target="_blank"><img src="https://cdn.smylee.com/images/20160702_solar/ENPH_logo_scr_RGB_API_sm.png" alt="Enphase Energy" class="no_border"></a></div>
     <div class="clear-all"></div>
 </div>
 <script type="text/javascript" src="/js/smylee/solar_angular.js"></script>

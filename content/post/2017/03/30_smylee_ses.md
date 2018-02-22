@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["AWS"]
 tags = ["Email", "AWS", "SES Rules", "S3", "SNS", "KMS"]
-thumbnail = "http://cdn.smylee.com/images/2017/03/smylee_com_ses_workflows_sm.png"
+thumbnail = "https://cdn.smylee.com/images/2017/03/smylee_com_ses_workflows_sm.png"
 +++
 
 I setup email receiving for patty at smylee.com using Amazon SES.
@@ -29,7 +29,7 @@ Because of this restriction, in this code, during the s3 event message to sqs ph
 
 ## Diagram
 
-<img src="http://cdn.smylee.com/images/2017/03/smylee_com_ses_workflows.png" alt="SES workflow for smylee.com" title="SES workflow for smylee.com">
+<img src="https://cdn.smylee.com/images/2017/03/smylee_com_ses_workflows.png" alt="SES workflow for smylee.com" title="SES workflow for smylee.com">
 
 ## Steps
 
@@ -37,4 +37,4 @@ More information and steps to set this up can be found at: https://github.com/sm
 
 ## Miscellaneous
 I also added an alarm if the SQS gets too large in a short period of time, it will trigger a CloudWatch alarm.
-<img src="http://cdn.smylee.com/images/2017/03/sqs_alarm_for_emails.png" alt="SQS Alarm for number of messages received" title="SQS Alarm for number of messages received">
+<img src="https://cdn.smylee.com/images/2017/03/sqs_alarm_for_emails.png" alt="SQS Alarm for number of messages received" title="SQS Alarm for number of messages received">

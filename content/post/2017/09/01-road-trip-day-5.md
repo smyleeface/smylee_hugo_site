@@ -2,7 +2,7 @@
 title = "Road Trip 2017 - Day 5"
 date = "2017-09-01T11:00:00-08:00"
 toc = false
-draft = true
+draft = false
 categories = ["Road Trip 2017"]
 tags = ["Road Trip 2017", "Road Trip", "RV", "West Yellowstone", "Montana"]
 +++

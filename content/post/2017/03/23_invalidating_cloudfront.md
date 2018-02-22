@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Step-by-Step Guides", "AWS"]
 tags = ["AWS", "CloudFront", "S3"]
-thumbnail = "http://cdn.smylee.com/images/2017/03/cloudfront.png"
+thumbnail = "https://cdn.smylee.com/images/2017/03/cloudfront.png"
 +++
 
 I had a image uploaded that had some information I didn't mean to post. I made the change but it was already cached in CloudFront.

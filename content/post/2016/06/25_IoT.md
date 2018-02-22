@@ -5,7 +5,7 @@ toc = false
 draft = false
 categories = ["Tinkering"]
 tags = ["AWS", "Lambda", "SNS", "Dash Button", "IoT"]
-thumbnail = "http://cdn.smylee.com/images/covers/awsiotdash.png"
+thumbnail = "https://cdn.smylee.com/images/covers/awsiotdash.png"
 +++
 
 I was curious about the programmable [Amazon IoT Dash Button](https://aws.amazon.com/iot/button/) and pre-ordered two buttons, thinking I might program one to give to my dad.
@@ -14,15 +14,15 @@ A few weeks ago it came in (three months earlier than expected) and went through
 
 *It looks like they've updated that tutorial since, and will send you a text instead of an email.
 
-<img src="http://cdn.smylee.com/images/20160625-iot/emails.png">
+<img src="https://cdn.smylee.com/images/20160625-iot/emails.png">
 
 Upon searching what you can do with this button, I found a [night light switch project](https://news.ycombinator.com/item?id=11688145) that sounded pretty cool, but upon continued reading, also learned that it will only last approximately 1000 clicks! That is very little for a development + use. [The battery is welded in](https://mpetroff.net/2015/05/amazon-dash-button-teardown/) and cannot be easily replaced. I was disappointed that was the case and for the price as well.
 
 In the email I received, I notice it was sending the voltage reading, which went down with every click.
 
-<img src="http://cdn.smylee.com/images/20160625-iot/single.png">
-<img src="http://cdn.smylee.com/images/20160625-iot/double.png">
-<img src="http://cdn.smylee.com/images/20160625-iot/long.png">
+<img src="https://cdn.smylee.com/images/20160625-iot/single.png">
+<img src="https://cdn.smylee.com/images/20160625-iot/double.png">
+<img src="https://cdn.smylee.com/images/20160625-iot/long.png">
 
 The pre-programmed dash buttons that Amazon sells, the 1000 clicks isn't an issue because it will take a long time to reach. So I need to be sure what I decide to use this for will not require many clicks in a short period of time.
 
