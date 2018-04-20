@@ -5,7 +5,7 @@ phases:
       - echo "*** DOWNLOAD THEME"
       - git clone https://github.com/smyleeface/hugo_theme_beg.git themes/beg
       - echo "*** BUILD STAGING"
-      - hugo --theme beg --baseURL http://staging.smylee.com/
+      - hugo --theme beg --baseURL https://staging.smylee.com/
       - ls -la ${CODEBUILD_SRC_DIR}
       - pwd
   post_build:
@@ -15,7 +15,12 @@ phases:
 
       # publishes to: https://s3-us-west-2.amazonaws.com/staging.smylee.com/CodeBuildArtifacts/*
       - echo "*** PUBLISHING TO S3 STAGING BUCKET"
-      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://staging.smylee.com --recursive
+
+      # copy all file except `index.html`
+      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://staging.smylee.com --recursive --exclude index.html
+
+      # copy only `index.html` file and add extra metadata for caching
+      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://staging.smylee.com --recursive --exclude "*" --include index.html --metadata Cache-Control="max-age=600"
 
 #NOTE: Cannot use the `artifacts` section
 # it works ok, in CodeBuild
