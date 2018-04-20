@@ -1,5 +1,8 @@
 version: 0.2
 phases:
+  pre_build:
+    commands:
+      # check if the build needs to continue based on the git changes
   build:
     commands:
       - echo "*** DOWNLOAD THEME"
@@ -15,7 +18,12 @@ phases:
 
       # publishes to: https://s3-us-west-2.amazonaws.com/smylee.com/CodeBuildArtifacts/*
       - echo "*** PUBLISHING TO S3 PRODUCTION BUCKET"
-      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://smylee.com --recursive
+
+      # copy all file except `index.html`
+      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://smylee.com --recursive --exclude index.html
+
+      # copy only `index.html` file and add extra metadata for caching
+      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://smylee.com --recursive --exclude "*" --include index.html --metadata Cache-Control="max-age=600"
 
 #NOTE: Cannot use the `artifacts` section
 # it works ok, in CodeBuild
