@@ -1,5 +1,4 @@
 
-[![Build Status](https://travis-ci.org/smyleeface/smylee_hugo_site.svg?branch=master)](https://travis-ci.org/smyleeface/smylee_hugo_site)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/smyleeface/smylee-com)
 
 # smylee_hugo_site
@@ -8,15 +7,24 @@
 * Theme [hugo_theme_beg](https://github.com/smyleeface/hugo_theme_beg) (forked)
 
 ## Run Hugo Server (Daemon)
-
+```bash
+docker-compose up --build -d
+```
+OR
 ```bash
 docker run --rm -itd -v $PWD:/smylee_com -p 1313:1313 --name smylee_hugo_site smylee_com_hugo hugo server -b http://localhost:1313 --bind 0.0.0.0 --theme beg --disableFastRender
 ```
+
+## Stop Hugo Server
 ```bash
 docker stop smylee_hugo_site
 ```
 
-## Run Hugo and Generate Site Files
+## Hugo Local Site URL
+
+http://localhost:1313
+
+## Run Hugo to Generate Site Files
 
 ```bash
 docker run --rm -it -v $PWD:/smylee_com --name smylee_hugo_site smylee_com_hugo hugo --theme beg
