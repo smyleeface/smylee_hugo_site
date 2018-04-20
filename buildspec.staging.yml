@@ -20,7 +20,7 @@ phases:
       - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://staging.smylee.com --recursive --exclude index.html
 
       # copy only `index.html` file and add extra metadata for caching
-      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://staging.smylee.com --recursive --exclude "*" --include index.html ---cache-control 600
+      - aws s3 cp ${CODEBUILD_SRC_DIR}/public s3://staging.smylee.com --recursive --exclude "*" --include index.html --cache-control max-age=600
 
 #NOTE: Cannot use the `artifacts` section
 # it works ok, in CodeBuild
