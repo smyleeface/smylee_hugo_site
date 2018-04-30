@@ -1,0 +1,42 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - CodePipeline IAM Roles
+
+Parameters:
+  CodePipelineServiceRoleName:
+    Type: String
+
+Resources:
+
+ CodePipelineServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref CodePipelineServiceRoleName
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          -
+            Sid: trust
+            Effect: Allow
+            Principal:
+              Service:
+                - codepipeline.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/AWSCodePipelineCustomActionAccess"
+
+Outputs:
+  CodePipelineServiceRoleName:
+    Description: The name of the service role
+    Value: !Ref CodePipelineServiceRole
+    Export:
+      Name: hugosite-codepipeline-service-role-name
+  CodePipelineServiceRoleArn:
+    Description: The ARN of the service role
+    Value:
+      Fn::GetAtt:
+        - CodePipelineServiceRole
+        - Arn
+    Export:
+      Name: hugosite-codepipeline-service-role-arn

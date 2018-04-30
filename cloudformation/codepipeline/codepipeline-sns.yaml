@@ -1,0 +1,31 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - CodePipeline SNS
+
+Parameters:
+  CodePipelineSnsApproval:
+    Type: String
+
+
+Resources:
+
+ SnsManualApproval:
+  Type: "AWS::SNS::Topic"
+  Properties:
+    TopicName: !Ref CodePipelineSnsApproval
+
+Outputs:
+  SnsManualApprovalName:
+    Description: The sns name for manual approval
+    Value:
+      Fn::GetAtt:
+        - SnsManualApproval
+        - TopicName
+    Export:
+      Name: hugosite-sns-manual-approval-name
+  SnsManualApprovalArn:
+    Description: The sns arn for manual approval
+    Value: !Ref SnsManualApproval
+    Export:
+      Name: hugosite-sns-manual-approval-arn

@@ -1,0 +1,92 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - CodePipeline
+
+Parameters:
+  CodePipelineName:
+    Type: String
+  CodePipelineName:
+    Type: String
+  CodePipelineS3Bucket:
+    Type: String
+  GitHubOwner:
+    Type: String
+  GitHubRepo:
+    Type: String
+  GitHubBranch:
+    Type: String
+  GitHubToken:
+    Type: String
+    NoEcho: True
+  ArtifactsName:
+    Type: String
+
+# TODO Create s3 bucket miscellaneous
+
+Resources:
+
+  CodePipelineDeploy:
+    Type: "AWS::CodePipeline::Pipeline"
+    Properties:
+      Name: !Ref CodePipelineName
+      ArtifactStore:
+        Location: !Ref CodePipelineS3Bucket
+        # TODO (change this to an import when the s3 section is created
+#        Location: !ImportValue hugosite-bucket-misc
+        Type: S3
+      RoleArn: !ImportValue hugosite-codepipeline-service-role-arn
+      Stages:
+        - Name: Source
+          Actions:
+            - ActionTypeId:
+                Owner: "ThirdParty"
+                Category: Source
+                Provider: GitHub
+                Version: 1
+              Name: GitHubCommit
+              Configuration:
+                Owner: !Ref GitHubOwner
+                Repo: !Ref GitHubRepo
+                Branch: !Ref GitHubBranch
+                OAuthToken: !Ref GitHubToken
+              OutputArtifacts:
+                - Name: !Join [ '', [ !Ref ArtifactsName, '_GitHubSource' ] ]
+        - Name: BuildAndDeploy
+          Actions:
+            - Name: HugoSiteStaging
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Provider: CodeBuild
+                Version: 1
+              Configuration:
+                ProjectName: !ImportValue hugosite-codebuild-staging-id
+              InputArtifacts:
+                - Name: !Join [ '', [ !Ref ArtifactsName, '_GitHubSource' ] ]
+              OutputArtifacts: []
+            - Name: HugoSiteApproval
+              ActionTypeId:
+                Category: Approval
+                Owner: AWS
+                Provider: Manual
+                Version: 1
+              Configuration:
+                NotificationArn: !ImportValue hugosite-sns-manual-approval-arn
+            - Name: HugoSiteProduction
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Provider: CodeBuild
+                Version: 1
+              Configuration:
+                ProjectName: !ImportValue hugosite-codebuild-production-id
+              InputArtifacts:
+                - Name: !Join [ '', [ !Ref ArtifactsName, '_GitHubSource' ] ]
+              OutputArtifacts: []
+Outputs:
+  CodePipelineDeployOutput:
+    Description: The ARN of the Bucket to Store Objects
+    Value: !Ref CodePipelineDeploy
+    Export:
+      Name: hugosite-codepipeline-id

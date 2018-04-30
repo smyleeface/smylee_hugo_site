@@ -1,0 +1,192 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - CodeBuild and CodePipeline Main Stack
+
+Parameters:
+  CloudformationS3BucketUrl:
+    Type: String
+    Description: URL to S3 bucket where all nested files are located. Do not include slash at the end.
+  CodeBuildGitHubUrl:
+    Type: String
+    Description: The GitHub Repository URL that CodeBuild will pull files from
+  CodePipelineGitHubToken:
+    Type: AWS::SSM::Parameter::Value<String>
+    NoEcho: True
+    Description: The GitHub Personal Access token location or value. This should already exist in SSM Parameter Store under the key `/hugosite/codepipeline/github/personal-access-token`
+    Default: /hugosite/codepipeline/github/personal-access-token
+  CodePipelineS3Bucket:
+    Type: String
+    Description: The bucket name where the artifacts are stored
+    Default: smylee.com.codepipeline
+  CodePipelineGitHubOwner:
+    Type: String
+    Description: The name of the GitHub user
+    Default: smyleeface
+  CodePipelineGitHubRepo:
+    Type: String
+    Description: The URL of the Repo
+    Default: smylee_hugo_site
+  CodePipelineGitHubBranch:
+    Type: String
+    Description: The branch CodePipeline should trigger a build against
+    Default: master
+  CodeBuildS3StagingName:
+    Type: String
+    Description: The S3 bucket name to deploy to staging environment. # TODO: change this later to an import value
+    Default: staging.smylee.com
+  CodeBuildS3ProductionName:
+    Type: String
+    Description: The S3 bucket name to deploy to production environment. # TODO: change this later to an import value
+    Default: smylee.com
+  CodeBuildHugoSiteBuildContainer:
+    Type: String
+    Description: The Url to the location of the docker image for hugo
+    Default: 952671759649.dkr.ecr.us-west-2.amazonaws.com/smylee_com_hugo:latest
+
+Mappings:
+  Application:
+    Name:
+      Value: "Hugo Site"
+  CodePipeline:
+    ServiceRole:
+      Name: hugosite-codepipeline-service-role
+    Pipeline:
+      Name: hugosite-deploy
+    Sns:
+      Name: hugosite-send-message
+    Artifacts:
+      Name: MyAppArtifacts
+  CodeBuild:
+    ServiceRole:
+      Name: hugosite-codebuild-service-role
+    DeployPipeline:
+      Name: hugosite-deploy
+
+
+Resources:
+
+
+#
+##################################
+# CodeBuild
+##################################
+#
+  CodeBuildIamRoles:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      Parameters:
+        CodeBuildServiceRoleName: !FindInMap [CodeBuild, ServiceRole, Name]
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "codebuild/codebuild-iam-roles.yaml"
+
+  CodeBuild:
+    Type: "AWS::CloudFormation::Stack"
+    DependsOn: CodeBuildIamRoles
+    Properties:
+      Parameters:
+        DeployPipelineName: !FindInMap [CodeBuild, DeployPipeline, Name]
+        S3StagingName: !Ref CodeBuildS3StagingName
+        S3ProductionName: !Ref CodeBuildS3ProductionName
+        GitHubUrl: !Ref CodeBuildGitHubUrl
+        HugoSiteBuildContainer: !Ref CodeBuildHugoSiteBuildContainer
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "codebuild/codebuild.yaml"
+
+
+#
+##################################
+# CodePipeline
+##################################
+#
+  CodePipelineIamRoles:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      Parameters:
+        CodePipelineServiceRoleName: !FindInMap [CodePipeline, ServiceRole, Name]
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "codepipeline/codepipeline-iam-roles.yaml"
+
+
+  CodePipelineSnsApproval:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      Parameters:
+        CodePipelineSnsApproval: !FindInMap [CodePipeline, Sns, Name]
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "codepipeline/codepipeline-sns.yaml"
+
+  CodePipeline:
+    Type: "AWS::CloudFormation::Stack"
+    DependsOn:
+      - CodeBuild
+      - CodePipelineIamRoles
+      - CodePipelineSnsApproval
+    Properties:
+      Parameters:
+        CodePipelineName: !FindInMap [CodePipeline, Pipeline, Name]
+        CodePipelineS3Bucket: !Ref CodePipelineS3Bucket
+        GitHubOwner: !Ref CodePipelineGitHubOwner
+        GitHubRepo: !Ref CodePipelineGitHubRepo
+        GitHubBranch: !Ref CodePipelineGitHubBranch
+        GitHubToken: !Ref CodePipelineGitHubToken
+        ArtifactsName: !FindInMap [CodePipeline, Artifacts, Name]
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "codepipeline/codepipeline.yaml"
+
+Outputs:
+  CodeBuildIamRolesOutput:
+    Value: !Ref CodeBuildIamRoles
+    Export:
+      Name: codebuild-roles
+  CodeBuildOutput:
+    Value: !Ref CodeBuild
+    Export:
+      Name: codebuild
+  CodePipelineIamRolesOutput:
+    Value: !Ref CodePipelineIamRoles
+    Export:
+      Name: codepipeline-roles
+  CodePipelineSnsApprovalOutput:
+    Value: !Ref CodePipelineSnsApproval
+    Export:
+      Name: codepipeline-sns-approval
+  CodePipelineOutput:
+    Value: !Ref CodePipeline
+    Export:
+      Name: codepipeline

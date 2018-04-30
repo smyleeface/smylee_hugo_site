@@ -1,0 +1,41 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - CodeBuild IAM Roles
+
+Parameters:
+  CodeBuildServiceRoleName:
+    Type: String
+
+
+Resources:
+
+ CodeBuildServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref CodeBuildServiceRoleName
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          -
+            Sid: trust
+            Effect: Allow
+            Principal:
+              Service:
+                - codebuild.amazonaws.com
+            Action: sts:AssumeRole
+
+Outputs:
+  CodeBuildServiceRoleName:
+    Description: The name of the service role
+    Value: !Ref CodeBuildServiceRole
+    Export:
+      Name: hugosite-codebuild-service-role-name
+  CodeBuildServiceRoleArn:
+    Description: The ARN of the service role
+    Value:
+      Fn::GetAtt:
+        - CodeBuildServiceRole
+        - Arn
+    Export:
+      Name: hugosite-codebuild-service-role-arn

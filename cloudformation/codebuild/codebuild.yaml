@@ -1,0 +1,92 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - CodeBuild
+
+Parameters:
+  DeployPipelineName:
+    Type: String
+  S3StagingName:
+    Type: String
+  S3ProductionName:
+    Type: String
+  GitHubUrl:
+    Type: String
+  HugoSiteBuildContainer:
+    Type: String
+
+# TODO Create s3 bucket miscellaneous , hugosite-bucket-staging
+
+Resources:
+
+  # NOTE: Before this can be created, authorize CodeBuild OAUTH access in GitHub
+  # https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html#CodeBuild-Type-ProjectSource-location
+  CodeBuildHugoSiteStaging:
+    Type: "AWS::CodeBuild::Project"
+    Properties:
+      Artifacts:
+        Location: !Ref S3StagingName
+      # TODO (change this to an import when the s3 section is created
+#        Location: !ImportValue hugosite-s3-staging-name
+        Name: CodeBuildArtifacts
+        Packaging: NONE
+        Type: S3
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: !Ref HugoSiteBuildContainer
+        Type: LINUX_CONTAINER
+      Name: HugoSiteStaging
+      ServiceRole: !ImportValue hugosite-codebuild-service-role-arn
+      Source:
+        Auth:
+          Type: OAUTH
+          Resource: GITHUB
+        BuildSpec: buildspec.staging.yml
+        Location: !Ref GitHubUrl
+        Type: GITHUB
+
+  CodeBuildHugoSiteProduction:
+    Type: "AWS::CodeBuild::Project"
+    Properties:
+      Artifacts:
+        Location: !Ref S3ProductionName
+      # TODO (change this to an import when the s3 section is created
+#        Location: !ImportValue hugosite-s3-production-name
+        Name: CodeBuildArtifacts
+        Packaging: NONE
+        Type: S3
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: !Ref HugoSiteBuildContainer
+        Type: LINUX_CONTAINER
+      Name: HugoSiteProduction
+      ServiceRole: !ImportValue hugosite-codebuild-service-role-arn
+      Source:
+        Auth:
+          Type: OAUTH
+          Resource: GITHUB
+        BuildSpec: buildspec.production.yml
+        Location: !Ref GitHubUrl
+        Type: GITHUB
+
+Outputs:
+  CodeBuildHugoSiteStagingId:
+    Description: CodeBuildHugoSiteStagingId
+    Value: !Ref CodeBuildHugoSiteStaging
+    Export:
+      Name: hugosite-codebuild-staging-id
+  CodeBuildHugoSiteStagingArn:
+    Description: CodeBuildHugoSiteStagingArn
+    Value: !GetAtt CodeBuildHugoSiteStaging.Arn
+    Export:
+      Name: hugosite-codebuild-staging-arn
+  CodeBuildHugoSiteProductionId:
+    Description: CodeBuildHugoSiteProductionId
+    Value: !Ref CodeBuildHugoSiteProduction
+    Export:
+      Name: hugosite-codebuild-production-id
+  CodeBuildHugoSiteProductionArn:
+    Description: CodeBuildHugoSiteProductionArn
+    Value: !GetAtt CodeBuildHugoSiteProduction.Arn
+    Export:
+      Name: hugosite-codebuild-production-arn
