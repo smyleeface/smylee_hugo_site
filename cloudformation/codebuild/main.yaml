@@ -10,39 +10,32 @@ Parameters:
   CodeBuildGitHubUrl:
     Type: String
     Description: The GitHub Repository URL that CodeBuild will pull files from
+  CodePipelineS3Bucket:
+    Type: String
+    Description: The bucket name where the artifacts are stored
+  CodePipelineGitHubOwner:
+    Type: String
+    Description: The name of the GitHub user
+  CodePipelineGitHubRepo:
+    Type: String
+    Description: The URL of the Repo
+  CodePipelineGitHubBranch:
+    Type: String
+    Description: The branch CodePipeline should trigger a build against
+  CodeBuildS3StagingName:
+    Type: String
+    Description: The S3 bucket name to deploy to staging environment. # TODO: change this later to an import value
+  CodeBuildS3ProductionName:
+    Type: String
+    Description: The S3 bucket name to deploy to production environment. # TODO: change this later to an import value
+  CodeBuildHugoSiteBuildContainer:
+    Type: String
+    Description: The Url to the location of the docker image for hugo
   CodePipelineGitHubToken:
     Type: AWS::SSM::Parameter::Value<String>
     NoEcho: True
     Description: The GitHub Personal Access token location or value. This should already exist in SSM Parameter Store under the key `/hugosite/codepipeline/github/personal-access-token`
     Default: /hugosite/codepipeline/github/personal-access-token
-  CodePipelineS3Bucket:
-    Type: String
-    Description: The bucket name where the artifacts are stored
-    Default: smylee.com.codepipeline
-  CodePipelineGitHubOwner:
-    Type: String
-    Description: The name of the GitHub user
-    Default: smyleeface
-  CodePipelineGitHubRepo:
-    Type: String
-    Description: The URL of the Repo
-    Default: smylee_hugo_site
-  CodePipelineGitHubBranch:
-    Type: String
-    Description: The branch CodePipeline should trigger a build against
-    Default: master
-  CodeBuildS3StagingName:
-    Type: String
-    Description: The S3 bucket name to deploy to staging environment. # TODO: change this later to an import value
-    Default: staging.smylee.com
-  CodeBuildS3ProductionName:
-    Type: String
-    Description: The S3 bucket name to deploy to production environment. # TODO: change this later to an import value
-    Default: smylee.com
-  CodeBuildHugoSiteBuildContainer:
-    Type: String
-    Description: The Url to the location of the docker image for hugo
-    Default: 952671759649.dkr.ecr.us-west-2.amazonaws.com/smylee_com_hugo:latest
 
 Mappings:
   Application:
