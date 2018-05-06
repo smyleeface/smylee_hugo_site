@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+#
+############################################################################
+# Deploys CloudFormation Templates
+############################################################################
+#
+# bash deploy.sh s3
+# bash deploy.sh codebuild
+# bash deploy.sh ecr
+# bash deploy.sh ecr_publish
+#
+######################################
+# Env Vars FILL OUT BELOW
+######################################
+#
+
+ACCOUNT=
+AWS_PROFILE=
+REGION=
+CLOUDFORMATION_ARTIFACTS_BUCKET=
+CLOUDFORMATION_REGION=
+DEPLOYMENT=
+DOMAIN=
+GITHUB_OWNER=
+GITHUB_BRANCH=
+GITHUB_REPO=
+GITHUB_REPO_URL=
+GITHUB_ACCESS_TOKEN=
+
+#
+######################################
+# Env Vars FILL OUT ABOVE
+######################################
+#
+
+UUID=$(uuidgen)
+
+service=$1
+
+account=${ACCOUNT}
+profile=${AWS_PROFILE}
+region=${REGION}
+s3CloudFormationArtifactsRegion=${CLOUDFORMATION_ARTIFACTS_BUCKET}
+s3CloudFormationArtifactsName=${CLOUDFORMATION_REGION}
+deployment=${DEPLOYMENT}
+domain=${DOMAIN}
+
+# S3 Buckets
+s3CodePipelineArtifactsBucketName=${deployment}-codepipeline-artifacts
+s3CodePipelineTriggerBucketName=${deployment}-codepipeline-trigger
+s3PublicBucketName=${deployment}-public
+s3SiteDomainStagingBucketName=stage.${domain}
+s3SiteDomainProductionBucketName=${domain}
+s3SiteAssetBucketName=${domain}.assets
+s3CloudFormationArtifactsUrl=https://s3.amazonaws.com/${s3CloudFormationArtifactsName}
+
+# Codebuild & Codepipeline
+githubRepoUrl=${GITHUB_REPO_URL}
+githubOwner=${GITHUB_OWNER}
+githubRepo=${GITHUB_REPO}
+githubBranch=${GITHUB_BRANCH}
+githubAccessToken=${GITHUB_ACCESS_TOKEN}
+
+# ECR
+buildContainerAccount=${account}
+buildContainerRegion=${region}
+buildContainerName=${deployment}-build-container
+buildContainerUrl=${buildContainerAccount}.dkr.ecr.${buildContainerRegion}.amazonaws.com/${buildContainerName}:latest
+
+echo "s3CloudFormationArtifactsName=${s3CloudFormationArtifactsName}"
+echo "s3CloudFormationArtifactsRegion=${s3CloudFormationArtifactsRegion}"
+echo "region=${region}"
+echo "deployment=${deployment}"
+echo "service=${service}"
+echo "domain=${domain}"
+echo "s3CodePipelineArtifactsBucketName=${s3CodePipelineArtifactsBucketName}"
+echo "s3CodePipelineTriggerBucketName=${s3CodePipelineTriggerBucketName}"
+echo "s3PublicBucketName=${s3PublicBucketName}"
+echo "s3SiteDomainStagingBucketName=${s3SiteDomainStagingBucketName}"
+echo "s3SiteDomainProductionBucketName=${s3SiteDomainProductionBucketName}"
+echo "s3SiteAssetBucketName=${s3SiteAssetBucketName}"
+echo "s3CloudFormationArtifactsUrl=${s3CloudFormationArtifactsUrl}"
+echo "githubRepoUrl=${githubRepoUrl}"
+echo "githubOwner=${githubOwner}"
+echo "githubRepo=${githubRepo}"
+echo "githubBranch=${githubBranch}"
+echo "buildContainerUrl=${buildContainerUrl}"
+echo "buildContainerName=${buildContainerName}"
+echo "buildContainerAccount=${buildContainerAccount}"
+echo "buildContainerRegion=${buildContainerRegion}"
+
+
+
+if [[ "${service}" == 'ecr' ]]; then
+  source ecr/deploy.sh
+elif [[ "${service}" == 'ecr_publish' ]]; then
+  source ecr/publish.sh
+fi
+
+if [[ "${service}" == 's3' ]]; then
+  source s3/deploy.sh
+fi
+
+if [[ "${service}" == 'codebuild' || "${service}" == 'codepipeline' ]]; then
+  source codebuild/deploy.sh
+fi
+
+if [[ "${service}" == 'cognito' ]]; then
+  source cognito/deploy.sh
+fi

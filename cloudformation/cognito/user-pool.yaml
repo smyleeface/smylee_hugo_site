@@ -1,0 +1,59 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - Cognito User Pool
+
+Parameters:
+  ExternalId:
+    Type: String
+  UserPoolName:
+    Type: String
+
+Resources:
+
+   CognitoUserPool:
+    Type: "AWS::Cognito::UserPool"
+    Properties:
+      UserPoolName: !Ref UserPoolName
+      SmsConfiguration:
+        ExternalId: !Ref ExternalId
+        SnsCallerArn: !ImportValue hugosite-user-pool-sns-role-arn
+      AliasAttributes:
+        - email
+        - phone_number
+      AutoVerifiedAttributes:
+        - email
+        - phone_number
+      Schema:
+        -
+          Name: name
+          Required: true
+          AttributeDataType: String
+        -
+          Name: email
+          Required: true
+          AttributeDataType: String
+        -
+          Name: phone_number
+          Required: true
+          AttributeDataType: String
+      EmailVerificationMessage: "Your username is {username} and temporary password is {####}."
+      EmailVerificationSubject: "Your temporary password"
+      SmsVerificationMessage: "Your temporary password is {####}."
+      SmsAuthenticationMessage: "Your code is {####}."
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+          RequireUppercase: true
+      MfaConfiguration: OPTIONAL
+
+Outputs:
+
+  CognitoUserPoolId:
+    Description: The name of the user pools id
+    Value: !Ref CognitoUserPool
+    Export:
+      Name: hugosite-user-pool-id

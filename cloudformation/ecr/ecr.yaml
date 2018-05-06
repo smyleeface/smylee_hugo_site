@@ -1,0 +1,23 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - ECR
+
+Parameters:
+  ecrBuildContainerName:
+    Type: String
+    Description: Name of the ECR for the site generator
+
+Resources:
+
+  BuildContainer:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: !Ref ecrBuildContainerName
+
+Outputs:
+  BuildContainerName:
+    Description: Name of the ECR for the site generator
+    Value: !Ref BuildContainer
+    Export:
+      Name: ecrBuildContainerName

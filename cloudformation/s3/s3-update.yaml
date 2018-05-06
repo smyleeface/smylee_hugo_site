@@ -1,0 +1,119 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - S3 Buckets
+
+Parameters:
+  s3CodePipelineArtifactsBucketName:
+    Type: String
+    Description: Artifact bucket for CodePipeline
+  s3CodePipelineTriggerBucketName:
+    Type: String
+    Description: Bucket that will trigger CodePipeline
+  s3SiteDomainStagingBucketName:
+    Type: String
+    Description: Domain name for staging site (staging.example.com)
+  s3SiteDomainProductionBucketName:
+    Type: String
+    Description: Domain name for production site (example.com)
+  s3SiteAssetBucketName:
+    Type: String
+    Description: Bucket to store site assets (i.e. files, images, etc)
+  s3PublicBucketName:
+    Type: String
+    Description: Bucket to store public artifacts
+
+Resources:
+  CodePipelineArtifactsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref s3CodePipelineArtifactsBucketName
+  CodePipelineTriggerBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref s3CodePipelineTriggerBucketName
+      VersioningConfiguration:
+        Status: Enabled
+  SiteDomainStagingBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref s3SiteDomainStagingBucketName
+  SiteDomainProductionBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref s3SiteDomainProductionBucketName
+  SiteAssetBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref s3SiteAssetBucketName
+  PublicBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref s3PublicBucketName
+
+Outputs:
+  CodePipelineArtifactsBucketName:
+    Description: (Name) Artifact bucket for CodePipeline
+    Value: !Ref CodePipelineArtifactsBucket
+    Export:
+      Name: s3CodePipelineArtifactsBucketName
+  CodePipelineArtifactsBucketArn:
+    Description: (Arn) Artifact bucket for CodePipeline
+    Value: !GetAtt CodePipelineArtifactsBucket.Arn
+    Export:
+      Name: s3CodePipelineArtifactsBucketArn
+
+  CodePipelineTriggerBucketName:
+    Description: (Name) Bucket that will trigger CodePipeline
+    Value: !Ref CodePipelineTriggerBucket
+    Export:
+      Name: s3CodePipelineTriggerBucketName
+  CodePipelineTriggerBucketArn:
+    Description: (Arn) Bucket that will trigger CodePipeline
+    Value: !GetAtt CodePipelineTriggerBucket.Arn
+    Export:
+      Name: s3CodePipelineTriggerBucketArn
+
+  SiteDomainStagingBucketName:
+    Description: (Name) Domain name for staging site
+    Value: !Ref SiteDomainStagingBucket
+    Export:
+      Name: s3SiteDomainStagingBucketName
+  SiteDomainStagingBucketArn:
+    Description: (Arn) Domain name for staging site
+    Value: !GetAtt SiteDomainStagingBucket.Arn
+    Export:
+      Name: s3SiteDomainStagingArn
+
+  SiteDomainProductionName:
+    Description: (Name) Domain name for production site
+    Value: !Ref SiteDomainProductionBucket
+    Export:
+      Name: s3SiteDomainProductionBucketName
+  SiteDomainProductionArn:
+    Description: (Arn) Domain name for production site
+    Value: !GetAtt SiteDomainProductionBucket.Arn
+    Export:
+      Name: s3SiteDomainProductionArn
+
+  SiteAssetBucketName:
+    Description: (Name) Bucket to store site assets (i.e. files, images, etc)
+    Value: !Ref SiteAssetBucket
+    Export:
+      Name: s3SiteAssetBucketName
+  SiteAssetBucketArn:
+    Description: (Arn) Bucket to store site assets (i.e. files, images, etc)
+    Value: !GetAtt SiteAssetBucket.Arn
+    Export:
+      Name: s3SiteAssetBucketArn
+
+  PublicBucketName:
+    Description: (Name) Bucket to store public artifacts
+    Value: !Ref PublicBucket
+    Export:
+      Name: s3PublicBucketName
+  PublicBucketArn:
+    Description: (Arn) Bucket to store public artifacts
+    Value: !GetAtt PublicBucket.Arn
+    Export:
+      Name: s3PublicBucketArn

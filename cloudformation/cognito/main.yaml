@@ -1,0 +1,189 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - Cognito
+
+Parameters:
+  CloudformationS3BucketUrl:
+    Type: String
+    Description: URL to S3 bucket where all nested files are located. Do not include slash at the end.
+  ExternalId:
+    Type: String
+    Description: 'ExternalId is used in policy conditions when giving permissions to cognito. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html for more information.'
+
+Mappings:
+  Application:
+    Name:
+      Value: "Hugo Site"
+  Cognito:
+    UserPool:
+      Name: hugosite-user-pool
+    UserPoolSnsPolicy:
+      Name: hugosite-user-pool-sns
+    UserPoolSnsRole:
+      Name: hugosite-user-pool-sns-role
+    UserPoolClient:
+      Name: hugosite-client
+  FederatedIdentity:
+    IdentityPool:  # Member must satisfy regular expression pattern: [\w ]+
+      Name: hugo site identity pool
+    IdentityPoolAuthenticatedRole:
+      Name: hugosite-identity-pool-authenticated-role
+      
+Resources:
+
+#
+##################################
+# Cognito User Pool
+##################################
+#
+  UserPoolIamRoles:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      Parameters:
+        UserPoolSnsRole: !FindInMap [Cognito, UserPoolSnsRole, Name]
+        ExternalId: !Ref ExternalId
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "cognito/user-pool-iam-roles.yaml"
+
+  UserPoolIamPolicies:
+    Type: "AWS::CloudFormation::Stack"
+    DependsOn: UserPoolIamRoles
+    Properties:
+      Parameters:
+        UserPoolSnsPolicy: !FindInMap [Cognito, UserPoolSnsPolicy, Name]
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "cognito/user-pool-iam-policies.yaml"
+
+  UserPool:
+    Type: "AWS::CloudFormation::Stack"
+    DependsOn:
+      - UserPoolIamRoles
+      - UserPoolIamPolicies
+    Properties:
+      Parameters:
+        ExternalId: !Ref ExternalId
+        UserPoolName: !FindInMap [Cognito, UserPool, Name]
+        
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "cognito/user-pool.yaml"
+
+  UserPoolClient:
+    Type: "AWS::CloudFormation::Stack"
+    DependsOn: UserPool
+    Properties:
+      Parameters:
+        UserPoolClient: !FindInMap [Cognito, UserPoolClient, Name]
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "cognito/user-pool-client.yaml"
+
+#
+##################################
+# Cognito Federated Identity
+##################################
+#
+  IdentityPool:
+    Type: "AWS::CloudFormation::Stack"
+    DependsOn:
+      - UserPool
+      - UserPoolClient
+    Properties:
+      Parameters:
+        IdentityPool: !FindInMap [FederatedIdentity, IdentityPool, Name]
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "cognito/identity-pool.yaml"
+
+  IdentityPoolIamRoles:
+    Type: "AWS::CloudFormation::Stack"
+    DependsOn: IdentityPool
+    Properties:
+      Parameters:
+        IdentityPoolAuthenticatedRole: !FindInMap [FederatedIdentity, IdentityPoolAuthenticatedRole, Name]
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "cognito/identity-pool-iam-roles.yaml"
+
+  IdentityPoolAttachRoles:
+    Type: "AWS::CloudFormation::Stack"
+    DependsOn: IdentityPoolIamRoles
+    Properties:
+      Tags:
+        -
+          Key: AppName
+          Value: !FindInMap [Application, Name, Value]
+      TemplateURL:
+        !Join
+          - '/'
+          - - !Ref CloudformationS3BucketUrl
+            - "cognito/identity-pool-attach-roles.yaml"
+
+Outputs:
+  UserPoolIamRolesOutput:
+    Value: !Ref UserPoolIamRoles
+    Export:
+      Name: main-user-pool-iam-roles
+  UserPoolIamPoliciesOutput:
+    Value: !Ref UserPoolIamPolicies
+    Export:
+      Name: main-user-pool-iam-policies
+  UserPoolOutput:
+    Value: !Ref UserPool
+    Export:
+      Name: main-user-pool
+  UserPoolClientOutput:
+    Value: !Ref UserPoolClient
+    Export:
+      Name: main-user-pool-client
+  IdentityPoolOutput:
+    Value: !Ref IdentityPool
+    Export:
+      Name: main-identity-pool
+  IdentityPoolIamRolesOutput:
+    Value: !Ref IdentityPoolIamRoles
+    Export:
+      Name: main-identity-pool-iam-roles
+  IdentityPoolAttachRolesOutput:
+    Value: !Ref IdentityPoolAttachRoles
+    Export:
+      Name: main-identity-pool-attach-roles

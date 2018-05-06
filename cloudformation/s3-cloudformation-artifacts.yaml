@@ -1,0 +1,27 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - S3 Buckets
+
+Parameters:
+  CloudFormationArtifactsName:
+    Type: String
+    Description: Bucket to store CloudFormation files
+
+Resources:
+  CloudFormationArtifacts:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref CloudFormationArtifactsName
+
+Outputs:
+  CloudFormationArtifactsName:
+    Description: (Name) Bucket to store CloudFormation files
+    Value: !Ref CloudFormationArtifacts
+    Export:
+      Name: CloudFormationArtifactsName
+  CloudFormationArtifactsArn:
+    Description: (Arn) Bucket to store CloudFormation files
+    Value: !GetAtt CloudFormationArtifacts.Arn
+    Export:
+      Name: s3CloudFormationArtifactsArn

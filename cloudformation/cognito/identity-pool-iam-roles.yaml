@@ -1,0 +1,46 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - Cognito Identity Pool Roles
+
+Parameters:
+  IdentityPoolAuthenticatedRole:
+    Type: String
+    Description: Name of the authenticated role in the identity pool
+
+Resources:
+
+  # cognito authenticated role
+  CognitoIdentityPoolAuthenticatedRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref IdentityPoolAuthenticatedRole
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          -
+            Sid: IdentityPoolAuthenticatedRole
+            Effect: Allow
+            Principal:
+              Federated: cognito-identity.amazonaws.com
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                cognito-identity.amazonaws.com:aud: !ImportValue cognito-identity-pool-id
+              ForAnyValue:StringLike:
+                cognito-identity.amazonaws.com:amr: authenticated
+
+Outputs:
+  IdentityPoolAuthenticatedRoleName:
+    Description: The name of the identity pool authenitcated role
+    Value: !Ref CognitoIdentityPoolAuthenticatedRole
+    Export:
+      Name: cognito-identity-pool-authenticated-role-name
+  CognitoIdentityPoolAuthenticatedRoleArn:
+    Description: The ARN of the user pools sns role
+    Value:
+      Fn::GetAtt:
+        - CognitoIdentityPoolAuthenticatedRole
+        - Arn
+    Export:
+      Name: cognito-identity-pool-authenticated-role-arn

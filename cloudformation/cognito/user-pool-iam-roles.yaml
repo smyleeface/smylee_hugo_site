@@ -1,0 +1,49 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - Cognito User Pool IAM Users & Roles
+
+Parameters:
+  UserPoolSnsRole:
+    Type: String
+    Description: Role that will allow cognito to send sns messages
+  ExternalId:
+    Type: String
+    Description: The external ID used in IAM role trust relationships
+
+Resources:
+
+  # User pool sns role
+  CognitoUserPoolSnsRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref UserPoolSnsRole
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          -
+            Sid: UserPoolSnsRole
+            Effect: Allow
+            Principal:
+              Service:
+                - cognito-idp.amazonaws.com
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                sts:ExternalId: !Ref ExternalId
+
+Outputs:
+
+  CognitoUserPoolRoleName:
+    Description: The name of the user pools sns role
+    Value: !Ref CognitoUserPoolSnsRole
+    Export:
+      Name: hugosite-user-pool-sns-role-name
+  CognitoUserPoolRoleArn:
+    Description: The ARN of the user pools sns role
+    Value:
+      Fn::GetAtt:
+        - CognitoUserPoolSnsRole
+        - Arn
+    Export:
+      Name: hugosite-user-pool-sns-role-arn

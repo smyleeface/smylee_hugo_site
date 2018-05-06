@@ -6,7 +6,7 @@ Description: Hugo Site - CodeBuild and CodePipeline Main Stack
 Parameters:
   CloudformationS3BucketUrl:
     Type: String
-    Description: URL to S3 bucket where all nested files are located. Do not include slash at the end.
+    Description: URL to where all nested files are located. Do not include slash at the end.
   CodeBuildGitHubUrl:
     Type: String
     Description: The GitHub Repository URL that CodeBuild will pull files from
@@ -24,18 +24,21 @@ Parameters:
     Description: The branch CodePipeline should trigger a build against
   CodeBuildS3StagingName:
     Type: String
-    Description: The S3 bucket name to deploy to staging environment. # TODO: change this later to an import value
+    Description: The S3 bucket name to deploy to staging environment
   CodeBuildS3ProductionName:
     Type: String
-    Description: The S3 bucket name to deploy to production environment. # TODO: change this later to an import value
+    Description: The S3 bucket name to deploy to production environment
   CodeBuildHugoSiteBuildContainer:
     Type: String
     Description: The Url to the location of the docker image for hugo
   CodePipelineGitHubToken:
     Type: AWS::SSM::Parameter::Value<String>
     NoEcho: True
-    Description: The GitHub Personal Access token location or value. This should already exist in SSM Parameter Store under the key `/hugosite/codepipeline/github/personal-access-token`
-    Default: /hugosite/codepipeline/github/personal-access-token
+    Description: The GitHub Personal Access token location or value. This should already exist in SSM Parameter Store under the key `/{deployment}/codepipeline/github/personal-access-token`
+  Deployment:
+    Type: String
+    Description: The Url to the location of the docker image for hugo
+    Default: test
 
 Mappings:
   Application:
@@ -69,7 +72,7 @@ Resources:
     Type: "AWS::CloudFormation::Stack"
     Properties:
       Parameters:
-        CodeBuildServiceRoleName: !FindInMap [CodeBuild, ServiceRole, Name]
+        CodeBuildServiceRoleName: !Join ['-', [ !Ref Deployment, !FindInMap [CodeBuild, ServiceRole, Name] ] ]
       Tags:
         -
           Key: AppName
@@ -85,11 +88,11 @@ Resources:
     DependsOn: CodeBuildIamRoles
     Properties:
       Parameters:
-        DeployPipelineName: !FindInMap [CodeBuild, DeployPipeline, Name]
-        S3StagingName: !Ref CodeBuildS3StagingName
-        S3ProductionName: !Ref CodeBuildS3ProductionName
+        DeployPipelineName: !Join ['-', [ !Ref Deployment, !FindInMap [CodeBuild, DeployPipeline, Name] ] ]
+        S3StagingName:  !Ref CodeBuildS3StagingName
+        S3ProductionName:  !Ref CodeBuildS3ProductionName
         GitHubUrl: !Ref CodeBuildGitHubUrl
-        HugoSiteBuildContainer: !Ref CodeBuildHugoSiteBuildContainer
+        HugoSiteBuildContainer:  !Ref CodeBuildHugoSiteBuildContainer
       Tags:
         -
           Key: AppName
@@ -110,7 +113,7 @@ Resources:
     Type: "AWS::CloudFormation::Stack"
     Properties:
       Parameters:
-        CodePipelineServiceRoleName: !FindInMap [CodePipeline, ServiceRole, Name]
+        CodePipelineServiceRoleName:  !Join ['-', [ !Ref Deployment, !FindInMap [CodePipeline, ServiceRole, Name] ] ]
       Tags:
         -
           Key: AppName
@@ -126,7 +129,7 @@ Resources:
     Type: "AWS::CloudFormation::Stack"
     Properties:
       Parameters:
-        CodePipelineSnsApproval: !FindInMap [CodePipeline, Sns, Name]
+        CodePipelineSnsApproval:  !Join ['-', [ !Ref Deployment, !FindInMap [CodePipeline, Sns, Name] ] ]
       Tags:
         -
           Key: AppName
@@ -145,13 +148,13 @@ Resources:
       - CodePipelineSnsApproval
     Properties:
       Parameters:
-        CodePipelineName: !FindInMap [CodePipeline, Pipeline, Name]
-        CodePipelineS3Bucket: !Ref CodePipelineS3Bucket
-        GitHubOwner: !Ref CodePipelineGitHubOwner
-        GitHubRepo: !Ref CodePipelineGitHubRepo
-        GitHubBranch: !Ref CodePipelineGitHubBranch
-        GitHubToken: !Ref CodePipelineGitHubToken
-        ArtifactsName: !FindInMap [CodePipeline, Artifacts, Name]
+        CodePipelineName:  !Join ['-', [ !Ref Deployment, !FindInMap [CodePipeline, Pipeline, Name] ] ]
+        CodePipelineS3Bucket:  !Ref CodePipelineS3Bucket
+        GitHubOwner:  !Ref CodePipelineGitHubOwner
+        GitHubRepo:  !Ref CodePipelineGitHubRepo
+        GitHubBranch:  !Ref CodePipelineGitHubBranch
+        GitHubToken:  !Ref CodePipelineGitHubToken
+        ArtifactsName:  !Join ['-', [ !Ref Deployment, !FindInMap [CodePipeline, Artifacts, Name] ] ]
       Tags:
         -
           Key: AppName

@@ -1,0 +1,27 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - S3 Buckets
+
+Parameters:
+  s3PublicBucketName:
+    Type: String
+    Description: Bucket to store public artifacts
+
+Resources:
+  PublicBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref s3PublicBucketName
+
+Outputs:
+  PublicBucketName:
+    Description: (Name) Bucket to store public artifacts
+    Value: !Ref PublicBucket
+    Export:
+      Name: s3PublicBucketName
+  PublicBucketArn:
+    Description: (Arn) Bucket to store public artifacts
+    Value: !GetAtt PublicBucket.Arn
+    Export:
+      Name: s3PublicBucketArn

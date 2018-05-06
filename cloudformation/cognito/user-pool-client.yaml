@@ -1,0 +1,25 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - Cognito User Pool Client
+
+Parameters:
+  UserPoolClient:
+    Type: String
+
+Resources:
+
+  CognitoUserPoolClient:
+    Type: "AWS::Cognito::UserPoolClient"
+    Properties:
+      ClientName: !Ref UserPoolClient
+      UserPoolId: !ImportValue hugosite-user-pool-id
+      GenerateSecret: false
+
+Outputs:
+
+  CognitoUserPoolClient:
+    Description: The client id of the user pools id
+    Value: !Ref CognitoUserPoolClient
+    Export:
+      Name: hugosite-user-pool-client-id

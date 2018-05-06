@@ -1,0 +1,28 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - Cognito User Pool IAM Policies
+
+Parameters:
+  UserPoolSnsPolicy:
+    Type: String
+    Description: Sns policy to allow verification of phone number
+
+Resources:
+
+  ####### CognitoUserPoolSns
+  # policy
+  CognitoUserPoolSnsPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          -
+            Effect: Allow
+            Action:
+              - sns:publish
+            Resource: '*'
+      PolicyName: !Ref UserPoolSnsPolicy
+      Roles:
+        - !ImportValue hugosite-user-pool-sns-role-name

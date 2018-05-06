@@ -1,0 +1,34 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - Cognito Identity Pool
+
+Parameters:
+  IdentityPool:
+    Type: String
+    Description: Name of the identity pool
+
+Resources:
+
+   CognitoIdentityPool:
+     Type: "AWS::Cognito::IdentityPool"
+     Properties:
+       IdentityPoolName: !Ref IdentityPool
+       AllowUnauthenticatedIdentities: false
+       CognitoIdentityProviders:
+         - ClientId: !ImportValue hugosite-user-pool-client-id
+           ProviderName:
+              !Join
+                - ''
+                - - "cognito-idp."
+                  - !Ref AWS::Region
+                  - ".amazonaws.com/"
+                  - !ImportValue hugosite-user-pool-id
+
+Outputs:
+
+  CognitoIdentityPool:
+    Description: The id of the identity pool
+    Value: !Ref CognitoIdentityPool
+    Export:
+      Name: cognito-identity-pool-id

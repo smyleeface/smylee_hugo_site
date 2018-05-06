@@ -1,0 +1,14 @@
+
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Hugo Site - Identity Pool Attach Roles
+
+Resources:
+
+   # This needs to come after the iam role or there will be a circular dependencies
+   CognitoIdentityPoolAuthenticatedRole:
+      Type: "AWS::Cognito::IdentityPoolRoleAttachment"
+      Properties:
+        IdentityPoolId: !ImportValue cognito-identity-pool-id
+        Roles:
+          authenticated: !ImportValue cognito-identity-pool-authenticated-role-arn
