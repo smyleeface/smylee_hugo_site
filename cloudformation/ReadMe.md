@@ -35,9 +35,10 @@ Ongoing project.
     * Dependent On: `ECR`
     * Creates and publishes the images used to build the site.
 1. [CodeBuild and CodePipeline](codebuild/ReadMe.md)
-    * COMMAND: `cognito`
+    * COMMAND: `codebuild`
     * Dependent On: `ECR` & `Container Image`
     * Executing upon repository update, CodePipeline will trigger a workflow to update the Website.
     * The CodePipeline will include CodeBuild Artifacts.
 1. [Cognito](cognito/ReadMe.md)
+    * COMMAND: `cognito`
     * Generates user pool and identity pool for future use of site management system and/or viewing of private posts.
