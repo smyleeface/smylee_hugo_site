@@ -1,3 +1,7 @@
+# smylee_hugo_site #
+######################
+cloudformation/deploy.sh
+
 # Hugo Development #
 ######################
 public
