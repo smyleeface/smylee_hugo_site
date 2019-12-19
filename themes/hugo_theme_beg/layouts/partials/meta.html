@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+{{ .Hugo.Generator }}
+
+{{ with .RSSLink }}<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ . }}">{{ end }}
+
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- http://jquery.com/download/ -->
+<script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript" src = "/js/angular.min.js"></script>
+
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js" type="text/javascript"></script> -->
+<script src="/js/charts/Chart.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/1.0.0-alpha8/angular-chart.min.js" type="text/javascript"></script> -->
+<script src="/js/charts/angular-chart.min.js"></script>
+<!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.css" /> -->
+<link rel="stylesheet" href="/css/angular-chart.min.css" />
