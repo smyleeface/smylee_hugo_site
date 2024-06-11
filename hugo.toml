@@ -30,7 +30,7 @@ page = '/:slug/'
 mainSections = ['post']
 featuredImageField = 'thumbnail'
 rssFullContent = true
-favicon = '' # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
+favicon = 'favicon.ico'
 
   [params.footer]
   since = 2013
@@ -41,12 +41,16 @@ favicon = '' # e.g.: favicon placed in `static/favicon.ico` of your site folder,
   lastUpdated = 'Jan 02, 2006 15:04 MST'
 
   [params.sidebar]
-  emoji = '🍥'
+  emoji = ''
   subtitle = 'A place to revisit my random things for future reference.'
+
+    [params.sidebar.toc]
+    enabled = true
+
     [params.sidebar.avatar]
     enabled = true
     local = true
-    src = 'img/avatar.png'
+    src = 'smiley_face_with_purple_hoodie.png'
 
   [params.article]
   math = false
@@ -75,6 +79,24 @@ favicon = '' # e.g.: favicon placed in `static/favicon.ico` of your site folder,
     limit = 10
 
   [[params.widgets.page]]
+  type = 'search'
+
+  [[params.widgets.page]]
+  type = 'archives'
+    [params.widgets.page.params]
+    limit = 5
+
+  [[params.widgets.page]]
+  type = 'categories'
+    [params.widgets.page.params]
+    limit = 10
+
+  [[params.widgets.page]]
+  type = 'tag-cloud'
+    [params.widgets.page.params]
+    limit = 10
+
+  [[params.widgets.page]]
   type = 'toc'
 
   [params.colorScheme]
@@ -90,27 +112,46 @@ favicon = '' # e.g.: favicon placed in `static/favicon.ico` of your site folder,
 # Custom menu
 # See https://stack.jimmycai.com/config/menu
 # To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
+[menu]
 [[menu.main]]
+name = "Home"
+url = "/"
+weight = 10
+identifier = "home"
+[menu.main.params]
+    icon = "home"
 
-[[menu.social]]
+[[menu.main]]
+name = "Business Card"
+url = "https://meet.pattyr.dev"
+identifier = "businesscard"
+weight = 20
+[menu.main.params]
+    icon = "cards"
+    newTab = true
+
+[[menu.main]]
 identifier = 'github'
 name = 'GitHub'
 url = 'https://github.com/smyleeface'
-  [menu.social.params]
+weight = 30
+  [menu.main.params]
   icon = 'brand-github'
 
-[[menu.social]]
+[[menu.main]]
 identifier = 'linkedin'
 name = 'LinkedIn'
 url = 'https://linkedin.com/in/pramert'
-  [menu.social.params]
+weight = 40
+  [menu.main.params]
   icon = 'brand-linkedin'
 
-[[menu.social]]
+[[menu.main]]
 identifier = 'email'
 name = 'Email'
 url = 'mailto:pattyrdev@proton.me'
-  [menu.social.params]
+weight = 50
+  [menu.main.params]
   icon = 'mail'
 
 [[related.indices]]
