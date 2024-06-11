@@ -94,6 +94,29 @@ favicon = '' # e.g.: favicon placed in `static/favicon.ico` of your site folder,
 # Custom menu
 # See https://stack.jimmycai.com/config/menu
 # To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
+[[menu.main]]
+
+[[menu.social]]
+identifier = 'github'
+name = 'GitHub'
+url = 'https://github.com/smyleeface'
+  [menu.social.params]
+  icon = 'brand-github'
+
+[[menu.social]]
+identifier = 'linkedin'
+name = 'LinkedIn'
+url = 'https://linkedin.com/in/pramert'
+  [menu.social.params]
+  icon = 'brand-linkedin'
+
+[[menu.social]]
+identifier = 'email'
+name = 'Email'
+url = 'mailto:pattyrdev@proton.me'
+  [menu.social.params]
+  icon = 'mail'
+
 [[related.indices]]
 name = 'tags'
 weight = 100
