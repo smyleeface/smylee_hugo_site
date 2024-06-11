@@ -4,6 +4,8 @@ theme = 'hugo-theme-stack'
 paginate = 5
 title = "Patty's Recollections"
 copyright = 'Patty Ramert'
+enableRobotsTXT = true
+enableEmoji = true
 
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
@@ -20,12 +22,6 @@ weight = 1
   [languages.en.params]
   description = 'A place to revisit my random things for future reference.'
 
-#[services.disqus]
-#shortname = 'hugo-theme-stack'
-#
-#[services.googleAnalytics]
-#id = ''
-#
 [permalinks]
 post = '/p/:slug/'
 page = '/:slug/'
