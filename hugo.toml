@@ -1,0 +1,186 @@
+baseurl = 'https://example.com'
+languageCode = 'en-us'
+theme = 'hugo-theme-stack'
+paginate = 5
+title = "Patty's Recollections"
+copyright = 'Patty R'
+enableRobotsTXT = true
+enableEmoji = true
+
+# Theme i18n support
+# Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
+DefaultContentLanguage = 'en'
+
+# Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
+# This will make .Summary and .WordCount behave correctly for CJK languages.
+hasCJKLanguage = false
+
+[languages.en]
+languageName = 'English'
+title = "Patty's Recollections"
+weight = 1
+  [languages.en.params]
+  description = 'A place to revisit my random things for future reference.'
+
+[permalinks]
+post = '/post/:year/:month/:slug/'
+page = '/:slug/'
+
+[params]
+mainSections = ['post']
+featuredImageField = 'thumbnail'
+rssFullContent = true
+favicon = 'favicon.ico'
+
+  [params.footer]
+  since = 2013
+  customText = ''
+
+  [params.dateFormat]
+  published = 'Jan 02, 2006'
+  lastUpdated = 'Jan 02, 2006 15:04 MST'
+
+  [params.sidebar]
+  emoji = ''
+  subtitle = 'A place to revisit my random things for future reference.'
+
+    [params.sidebar.toc]
+    enabled = true
+
+    [params.sidebar.avatar]
+    enabled = true
+    local = true
+    src = 'smiley_face_with_purple_hoodie.png'
+
+  [params.article]
+  math = false
+  toc = true
+  readingTime = true
+    [params.article.license]
+    enabled = true
+    default = 'Licensed under CC BY-NC-SA 4.0'
+
+  [[params.widgets.homepage]]
+  type = 'search'
+
+  [[params.widgets.homepage]]
+  type = 'archives'
+    [params.widgets.homepage.params]
+    limit = 5
+
+  [[params.widgets.homepage]]
+  type = 'categories'
+    [params.widgets.homepage.params]
+    limit = 10
+
+  [[params.widgets.homepage]]
+  type = 'tag-cloud'
+    [params.widgets.homepage.params]
+    limit = 10
+
+  [[params.widgets.page]]
+  type = 'toc'
+
+  [[params.widgets.page]]
+  type = 'search'
+
+  [[params.widgets.page]]
+  type = 'archives'
+    [params.widgets.page.params]
+    limit = 5
+
+  [[params.widgets.page]]
+  type = 'categories'
+    [params.widgets.page.params]
+    limit = 10
+
+  [[params.widgets.page]]
+  type = 'tag-cloud'
+    [params.widgets.page.params]
+    limit = 10
+
+  [params.colorScheme]
+  toggle = true # Display toggle
+  default = 'auto' # Available values: auto, light, dark
+
+  [params.imageProcessing.cover]
+  enabled = true
+
+  [params.imageProcessing.content]
+  enabled = true
+
+# Custom menu
+# See https://stack.jimmycai.com/config/menu
+# To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
+[menu]
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 10
+identifier = "home"
+[menu.main.params]
+    icon = "home"
+
+[[menu.main]]
+name = "Business Card"
+url = "https://meet.pattyr.dev"
+identifier = "businesscard"
+weight = 20
+[menu.main.params]
+    icon = "cards"
+    newTab = true
+
+[[menu.main]]
+identifier = 'github'
+name = 'GitHub'
+url = 'https://github.com/smyleeface'
+weight = 30
+  [menu.main.params]
+  icon = 'brand-github'
+
+[[menu.main]]
+identifier = 'linkedin'
+name = 'LinkedIn'
+url = 'https://linkedin.com/in/pramert'
+weight = 40
+  [menu.main.params]
+  icon = 'brand-linkedin'
+
+[[menu.main]]
+identifier = 'email'
+name = 'Email'
+url = 'mailto:pattyrdev@proton.me'
+weight = 50
+  [menu.main.params]
+  icon = 'mail'
+
+[[related.indices]]
+name = 'tags'
+weight = 100
+
+[[related.indices]]
+name = 'categories'
+weight = 200
+
+[markup.goldmark.renderer]
+unsafe = true ## Set to true if you have HTML content inside Markdown
+
+[markup.tableOfContents]
+endLevel = 4
+ordered = true
+startLevel = 2
+
+[markup.highlight]
+noClasses = false
+codeFences = true
+guessSyntax = true
+lineNoStart = 1
+lineNos = true
+lineNumbersInTable = true
+tabWidth = 4
+
+[deployment]
+[[deployment.targets]]
+name = 'production'
+URL = "s3://smylee.com?region=us-west-2"
+exclude = "{images, files}/**"

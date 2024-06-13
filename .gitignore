@@ -6,6 +6,8 @@ cloudformation/deploy.sh
 ######################
 public
 notes
+static/images
+static/files
 
 # OS generated files #
 ######################
