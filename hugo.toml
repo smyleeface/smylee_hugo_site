@@ -3,7 +3,7 @@ languageCode = 'en-us'
 theme = 'hugo-theme-stack'
 paginate = 5
 title = "Patty's Recollections"
-copyright = 'Patty Ramert'
+copyright = 'Patty R'
 enableRobotsTXT = true
 enableEmoji = true
 
@@ -23,7 +23,7 @@ weight = 1
   description = 'A place to revisit my random things for future reference.'
 
 [permalinks]
-post = '/p/:slug/'
+post = '/post/:year/:month/:slug/'
 page = '/:slug/'
 
 [params]
@@ -79,6 +79,9 @@ favicon = 'favicon.ico'
     limit = 10
 
   [[params.widgets.page]]
+  type = 'toc'
+
+  [[params.widgets.page]]
   type = 'search'
 
   [[params.widgets.page]]
@@ -95,9 +98,6 @@ favicon = 'favicon.ico'
   type = 'tag-cloud'
     [params.widgets.page.params]
     limit = 10
-
-  [[params.widgets.page]]
-  type = 'toc'
 
   [params.colorScheme]
   toggle = true # Display toggle
@@ -178,3 +178,9 @@ lineNoStart = 1
 lineNos = true
 lineNumbersInTable = true
 tabWidth = 4
+
+[deployment]
+[[deployment.targets]]
+name = 'production'
+URL = "s3://smylee.com?region=us-west-2"
+exclude = "{images, files}/**"
