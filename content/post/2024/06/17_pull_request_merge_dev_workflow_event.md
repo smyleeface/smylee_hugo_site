@@ -1,4 +1,5 @@
 +++
+
 title = "Pull Request Merge Workflow Event"
 description = "Setting up infrastructure to trigger a lambda function when a pull request is merged."
 date = "2024-06-17T14:00:00-08:00"
@@ -7,8 +8,9 @@ draft = false
 mermaid = true
 categories = ["Dev Workflow"]
 tags = ["AWS", "Dev Workflow"]
-thumbnail = ""
+thumbnail = "https://cdn.smylee.com/images/2024/06/17_pull_request_merge_dev_workflow_event_image_0.png"
 +++
+
 
 Hugo is [supported for deploy](https://gohugo.io/hosting-and-deployment/) on many platforms where this setup is not necessary.
 
