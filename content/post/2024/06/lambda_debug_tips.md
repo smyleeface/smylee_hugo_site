@@ -1,4 +1,5 @@
 +++
+
 title = "Lambda Debug Tips"
 description = "Setting logging levels in Lambda functions without changing the code."
 date = "2024-06-22T14:00:00-08:00"
@@ -7,8 +8,9 @@ draft = false
 mermaid = false
 categories = ["Dev Tips", "AWS"]
 tags = ["AWS", "Lambda", "Debug"]
-thumbnail = ""
+thumbnail = "https://cdn.smylee.com/images/2024/06/lambda_debug_tips_image_0.png"
 +++
+
 
 ## CloudWatch Logs from Lambda
 
