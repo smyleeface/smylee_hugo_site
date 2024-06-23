@@ -4,8 +4,8 @@ description = "Integrating my custom development workflow with my hugo_site repo
 date = "2024-06-12T13:00:00-08:00"
 toc = false
 draft = false
-categories = ["Website"]
-tags = ["Website", "AWS", "Hugo"]
+categories = ["Website", "Dev Workflow"]
+tags = ["Website", "AWS", "Hugo", "Dev Workflow"]
 thumbnail = "https://cdn.smylee.com/images/2024/06/dev_workflow_integration.png"
 +++
 
