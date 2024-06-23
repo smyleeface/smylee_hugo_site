@@ -1,4 +1,4 @@
-baseurl = 'https://example.com'
+baseurl = 'https://smylee.com'
 languageCode = 'en-us'
 theme = 'hugo-theme-stack'
 paginate = 5
@@ -31,6 +31,10 @@ mainSections = ['post']
 featuredImageField = 'thumbnail'
 rssFullContent = true
 favicon = 'favicon.ico'
+
+  [params.mermaid]
+    theme = "dark"
+    align = "center"
 
   [params.footer]
   since = 2013
