@@ -1,4 +1,5 @@
 +++
+
 title = "Dev Workflow IAM"
 description = "Setting up a simple username check so only authorized users can trigger the pipeline."
 date = "2024-06-22T15:00:00-08:00"
@@ -7,8 +8,9 @@ draft = false
 mermaid = false
 categories = ["Dev Workflow"]
 tags = ["AWS", "Lambda"]
-thumbnail = ""
+thumbnail = "https://cdn.smylee.com/images/2024/06/dev_workflow_iam_image_0.png"
 +++
+
 
 ## IAM Access in S3
 
