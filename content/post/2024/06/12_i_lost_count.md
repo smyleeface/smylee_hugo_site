@@ -4,7 +4,7 @@ date = "2024-06-12T11:00:00-08:00"
 toc = false
 draft = false
 categories = ["Website"]
-tags = ["Website", "AWS", "Hubo"]
+tags = ["Website", "AWS", "Hugo"]
 thumbnail = "http://cdn.smylee.com/images/2024/06/i_lost_count.png"
 +++
  
