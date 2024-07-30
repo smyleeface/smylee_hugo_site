@@ -8,7 +8,7 @@ draft = false
 mermaid = true
 categories = ["Image Generator", "Website"]
 tags = ["AWS", "Hugo", "AI"]
-thumbnail = "images/2024/06/hugo_site_automatic_cover_images_image_0.png"
+thumbnail = ""
 +++
 
 
