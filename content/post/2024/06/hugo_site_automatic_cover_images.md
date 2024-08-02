@@ -13,6 +13,7 @@ thumbnail = "https://cdn.smylee.com/images/2024/06/hugo_site_automatic_cover_ima
 
 
 
+
 When it comes to making cover images for my posts, I usually use an image that is already in the post or don't use one at all.
 
 I don't really like to spend the time with images. I thought it would be fun to let AI generate an image for me, upload to the CDN, and automatically commit the changes to the pull request for review.
