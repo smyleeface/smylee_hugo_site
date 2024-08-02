@@ -1,15 +1,18 @@
 +++
-
 title = "Hugo Website - Automatic Image Generator"
 description = "Generate cover images for new posts in a pull request. The images are automatically uploaded and the post is updated with the link."
 date = "2024-06-23T14:00:00-08:00"
 toc = false
 draft = false
 mermaid = true
-categories = ["Image Generator", "Website"]
-tags = ["AWS", "Hugo", "AI"]
-thumbnail = "images/2024/06/hugo_site_automatic_cover_images_image_0.png"
+categories = [ "Image Generator", "Website",]
+tags = [ "AWS", "Hugo", "AI",]
+thumbnail = "https://cdn.smylee.com/images/2024/06/hugo_site_automatic_cover_images_image_0_20240801165842.png"
 +++
+
+
+
+
 
 
 When it comes to making cover images for my posts, I usually use an image that is already in the post or don't use one at all.
