@@ -5,10 +5,11 @@ date = "2024-08-01T14:00:00-08:00"
 toc = false
 draft = false
 mermaid = true
-categories = ["Image Generator", "Website"]
-tags = ["AWS", "Hugo", "AI"]
-thumbnail = ""
+categories = [ "Image Generator", "Website",]
+tags = [ "AWS", "Hugo", "AI",]
+thumbnail = "https://cdn.smylee.com/images/2024/08/hugo_site_automatic_cover_images_pt2_image_0_20240801182138.png"
 +++
+
 
 I'm a little ahead of myself as I have already added a command line to slack to show me the images,
 but I did not like how I architected it, so I'm going to re-do it.
