@@ -5,10 +5,11 @@ date = "2024-08-02T15:00:00-08:00"
 toc = false
 draft = false
 mermaid = false
-categories = ["Random"]
-tags = ["development", "python", "workflow"]
-thumbnail = ""
+categories = [ "Random",]
+tags = [ "development", "python", "workflow",]
+thumbnail = "https://cdn.smylee.com/images/2024/08/whats_next_image_0_20240903200553.png"
 +++
+
 
 Now that I have a stable codebase for my development workflow, I need to get some pipelines in place for deployment because deploying by hand is not fun.
 
