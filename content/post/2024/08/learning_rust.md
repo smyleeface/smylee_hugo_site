@@ -5,10 +5,11 @@ date = "2024-08-31T15:00:00-08:00"
 toc = false
 draft = false
 mermaid = false
-categories = ["Programming"]
-tags = ["development", "rust", "study"]
-thumbnail = ""
+categories = [ "Programming",]
+tags = [ "development", "rust", "study",]
+thumbnail = "https://cdn.smylee.com/images/2024/08/learning_rust_image_0_20240903200546.png"
 +++
+
 
 I was recently presented a challenge to write a small application in Rust.
 
