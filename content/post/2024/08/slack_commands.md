@@ -5,10 +5,11 @@ date = "2024-08-02T14:00:00-08:00"
 toc = false
 draft = false
 mermaid = false
-categories = [ "Image Generator", "Website"]
-tags = ["Slack", "Notifications", "Monitoring"]
-thumbnail = ""
+categories = [ "Image Generator", "Website",]
+tags = [ "Slack", "Notifications", "Monitoring",]
+thumbnail = "https://cdn.smylee.com/images/2024/08/slack_commands_image_0_20240903200550.png"
 +++
+
 
 I have my automatic cover image generator setup, but currently don't have a way to trigger it.
 
