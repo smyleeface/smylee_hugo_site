@@ -28,7 +28,7 @@ I deleted the `public` directory, ran `hugo` to generate the site files, and upl
 
 The Cloudfront distribution was still active, so the site was live immediately.
 
-![Website screenshot of smylee.com](/images/2024/06/its_alive.png)
+![Website screenshot of smylee.com](https://cdn.smylee.com/images/2024/06/its_alive.png)
 
 ## New Learnings
 

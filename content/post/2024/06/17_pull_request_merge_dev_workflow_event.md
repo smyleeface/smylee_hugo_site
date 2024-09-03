@@ -43,7 +43,7 @@ I'll be working from the [smylee-dev-workflows repo at this point in time](https
 
 Fist I'll create the files that will be needed for the lambda function. It will simply log the event that triggers the lambda function.
 
-![File structure of Pull Request Merged](images/2024/06/file_structure_prmerged.png)
+![File structure of Pull Request Merged](https://cdn.smylee.com/images/2024/06/file_structure_prmerged.png)
 
 ```python
 import logging

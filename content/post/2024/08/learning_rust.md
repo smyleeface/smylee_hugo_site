@@ -25,6 +25,6 @@ Also need to refactor the code to use dependency injection, so I can write prope
 
 This project was a many first for me. Not only was this my first time writing a Rust application, it was also my first time setting up an install/uninstall script. It also has a release pipeline, which I've made before, but my first time using github-actions and GitHub's release feature.
 
-![rustyfileninja.png](/images/2024/08/rustyfileninja.png)
+![rustyfileninja.png](https://cdn.smylee.com/images/2024/08/rustyfileninja.png)
 
-![rustfileninja_uninstall.png](/images/2024/08/rustfileninja_uninstall.png)
+![rustfileninja_uninstall.png](https://cdn.smylee.com/images/2024/08/rustfileninja_uninstall.png)

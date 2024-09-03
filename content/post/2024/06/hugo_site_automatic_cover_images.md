@@ -38,7 +38,7 @@ I didn't really log my steps during development on this one, but one new thing I
 
 I incrementally added features, and it was a fun way to develop.
 
-![ChatGPT Writing Code](/images/2024/06/chatgpt_writing_code.png)
+![ChatGPT Writing Code](https://cdn.smylee.com/images/2024/06/chatgpt_writing_code.png)
 
 Code organization got a bit messy as I added more features, I tried to clean it up a bit.
 

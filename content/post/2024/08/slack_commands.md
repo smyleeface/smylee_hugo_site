@@ -41,7 +41,7 @@ Additionally, the [slash command content type is sent as `application/x-www-form
 
 It's been awhile since I've set up a Slack app, so I'll create a new one from scratch to better understand the scopes and settings. For free users, you can create/integrate up to 10 apps.
 
-![Slack app configuration home screen](/images/2024/07/slack1.png)
+![Slack app configuration home screen](https://cdn.smylee.com/images/2024/07/slack1.png)
 
 First I'm going to change the avatar, so I'm not always looking at a notebook and pencil. :memo:
 
@@ -49,11 +49,11 @@ Upon expanding the "Add features and functionality" section, I see the "Slash Co
 
 I'm going to name the command 'pattyrbot' for now and I added the endpoint I created in my dev-workflow API Gateway.
 
-![Slack command configuration screen](/images/2024/07/slack2.png)
+![Slack command configuration screen](https://cdn.smylee.com/images/2024/07/slack2.png)
 
 Now, I'll install the app to a workspace and try to run the command.
 
-![Running the Slack command in the workspace](/images/2024/07/slack3.png)
+![Running the Slack command in the workspace](https://cdn.smylee.com/images/2024/07/slack3.png)
 
 The command ran but nothing displayed in the chat because I'm not returning anything to the user.
 
@@ -81,7 +81,7 @@ trigger_id=123.456.7890
 
 The response_url is where I need to send the response.
 
-![Slack command response](/images/2024/07/slack4.png)
+![Slack command response](https://cdn.smylee.com/images/2024/07/slack4.png)
 
 ## Parse the action (text)
 
@@ -91,11 +91,11 @@ I'm going to make a `hugo-cover-image` action that will send a message to the SN
 
 The command will end up looking like: `/pattyrbot hugo-cover-image`.
 
-![Slack command with an action](/images/2024/07/slack6.png)
+![Slack command with an action](https://cdn.smylee.com/images/2024/07/slack6.png)
 
 I also sent a bad request response if the action is not recognized.
 
-![Slack command with an unrecognized action](/images/2024/07/slack5.png)
+![Slack command with an unrecognized action](https://cdn.smylee.com/images/2024/07/slack5.png)
 
 ## Connecting to the Image Generator
 
@@ -105,11 +105,11 @@ Additionally, the image generator no longer writes immediately to the pull reque
 
 Currently, it only generates one image, but it's setup to accept more.
 
-![generated_image_in_slack.png](/images/2024/08/generated_image_in_slack.png)
+![generated_image_in_slack.png](https://cdn.smylee.com/images/2024/08/generated_image_in_slack.png)
 
 I know the command is a bit long, but at least it will tell you what is missing and the exact command you last entered :sweat_smile:
 
-![missing_parameters.png](/images/2024/08/missing_parameters.png)
+![missing_parameters.png](https://cdn.smylee.com/images/2024/08/missing_parameters.png)
 
 ## Next Steps
 
